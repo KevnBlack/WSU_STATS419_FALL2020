@@ -1,22 +1,345 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
+    toc: true
+    toc_float: true
+    fig_caption: true
 ---
-
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
 ```{r}
-source("functions/libraries.R")
-```
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
-```{r}
-
+library(devtools)
+my.source = 'local'
+local.path = "D:/School/Fall 2020/STAT 419/git/WSU_STATS419_FALL2020/"
+source(paste0(local.path,"functions/libraries.R"), local=T)
+source(paste0(local.path,"functions/functions-imdb.R"), local=T)
 ```
 
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+## Question 1
+```{r}
+myMatrix = matrix(c(
+  1, 0, 2,
+  0, 3, 0,
+  4, 0, 5
+), nrow=3, byrow=T);
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+transposeMatrix = function(mat)
+{
+  t(mat);	
+}
+
+
+rotateMatrix90 = function(mat)
+{
+  t(apply(mat, 2, rev)); # Rotation by reversing the cols, then transpose
+}
+
+rotateMatrix180 = function(mat)
+{
+  rotateMatrix90(rotateMatrix90(mat)); # Repeat two 90 deg rotations
+}
+
+rotateMatrix270 = function(mat)
+{
+  rotateMatrix180(rotateMatrix90(mat)); # Rotate a 90 deg rotation with a 180 deg rotation
+}
+
+myMatrix
+rotateMatrix90(myMatrix)
+rotateMatrix180(myMatrix)
+rotateMatrix270(myMatrix)
+```
+
+## Question 2
+```{r}
+pairs(x = iris[,1:4], # Supply just the sepal and petal lengths/widths
+      pch = 21, # Plotting symbol 21, a filled circle
+      bg = c("red", "green", "blue")[iris$Species], # Color points by species
+      main = "Iris Data (red=setosa,green=versicolor,blue=virginica)") # Title
+```
+
+## Question 4
+```{r}
+df <- read.table("../datasets/personality/personality-raw.txt", 
+                 header=T, sep="|", dec=".")[,-3] # Import data, omit V00
+YEAR <- c() # Create empty vectors for YEAR and WEEK
+WEEK <- c()
+
+for (i in 1:length(df$date_test)){ # Loop through date_test col of df
+  curr <- unlist(strsplit(as.character(df$date_test[i]), " "))[1] # Grab date
+  curr.form <- as.Date(curr, "%m/%d/%Y") # Convert character to formatted date
+  YEAR[i] <- format(curr.form,"%Y") # Add year to YEAR vector
+  WEEK[i] <- format(curr.form,"%V") # Add week number to WEEK vector
+}
+
+df$YEAR <- YEAR # Add YEAR and WEEK cols to original df
+df$WEEK <- WEEK
+df <- df[order(df$YEAR,df$WEEK, decreasing=TRUE),] # Sort dataframe by YEAR and WEEK
+
+df <- df[!duplicated(df$md5_email),] # Keep unique rows based on df$md5_email
+
+# Write cleaned df to .txt file
+write.table(df, file = "../datasets/personality/personality-clean.txt", sep="|")
+```
+
+## Question 5
+```{r}
+doSummary = function(x)
+{
+  z.scores <- c()
+  naive = doSampleVariance(as.numeric(x[,3:62]),'naive') # Calculate naive var
+  two.pass = doSampleVariance(as.numeric(x[,3:62]),'two-pass') # Calculate two-pass var
+  mean = mean(as.numeric(x[,3:62])) # Calculate mean
+  stdev = sd(as.numeric(x[,3:62])) # Calculate stdev
+  x = as.numeric(x[,3:62]) # Convert vector to numerical values
+  
+  print(paste("Length:",length(x))) # Length of x
+  print(paste("# of NAs:",sum(is.na(x)))) # Number of NAs
+  print(paste("Mean:",mean)) # Mean of x
+  print(paste("Median:",median(x))) # Median of x
+  print(paste("Mode:",doMode(x))) # Mode of x
+  cat("",sep="\n")
+  print(paste("Variance (Base):",var(x))) # Base R var
+  cat("",sep="\n")
+  print(paste("Variance (Naive, Sum):",naive[1])) # Sum when calculating naive var
+  print(paste("Variance (Naive, SumSq):",naive[2])) # SumSq when calculating naive var
+  print(paste("Variance (Naive, Var):",naive[3])) # Naive var
+  cat("",sep="\n")
+  print(paste("Variance (Two-pass, sum1):",two.pass[1])) # sum1 for two-pass var
+  print(paste("Variance (Two-pass, sum2):",two.pass[2])) # sum2 for two-pass var
+  print(paste("Variance (Two-pass, Var):",two.pass[3])) # Two-pass var
+  cat("",sep="\n")
+  print(paste("Stdev (Base):",stdev)) # Base R stdev
+  print(paste("Stdev (Naive):",sqrt(as.numeric(naive[3])))) # Naive stdev
+  print(paste("Stdev (Two-pass):",sqrt(as.numeric(two.pass[3])))) # Two-pass stdev
+  
+  for (i in 1:length(x)) # Compute z-scores for specified record
+  {
+    z = (x[i]-mean)/stdev # z-score formula
+    z.scores <- append(z.scores,z) # Collection of z-scores
+  }
+  
+  plot(x,z.scores) # Plot raw scores against z-scores
+  unique(x)
+}
+
+doSampleVariance = function(x,method) # Can perform two variance calculations
+{
+  if(method=='naive') # Algorithm from https://bit.ly/31QSe2I
+  {
+    n = Sum = SumSq = 0
+    for (i in 1:length(x))
+    {
+      n = n+1
+      Sum = Sum + x[i]
+      SumSq = SumSq+(x[i]*x[i])
+    }
+    Var = (SumSq - (Sum*Sum)/n)/(n-1)
+    stats <- list(Sum,SumSq,Var)
+    return(stats)
+  }
+  else # Algorithm from https://bit.ly/32R77kS
+  {
+    n = sum1 = sum2 = 0
+    for (i in 1:length(x))
+    {
+      n = n+1
+      sum1 = sum1 + x[i]
+    }
+    mean = sum1 / n
+    for (i in 1:length(x))
+    {
+      sum2 = sum2 + (x[i]-mean)^2
+    }
+    Var = sum2 / (n-1)
+    stats <- list(sum1,sum2,Var)
+    return(stats)
+  }
+}
+
+doMode = function(x) # Perform mode calculation
+{
+  uniq <- unique(x) # Isolate unique values
+  matches <- match(x,uniq) # Indexes for every x value in uniq
+  freq <- tabulate(matches) # Frequencies for each x value
+  return(uniq[which.max(freq)]) # Index for max frequency in uniq
+}
+
+df <- read.table("personality-clean.txt", header=T, sep="|", dec=".") # Read clean dataset
+monte.record <- df[1,] # Record for monte.shaffer@gmail.com
+doSummary(monte.record) # Various statistics for the monte record
+```
+
+## Question 6
+```{r}
+## functions
+
+education = function(one)
+{
+  result = list();
+  result$who 		= one;
+  result$think 	= c("intensitively", "critically");
+  result$goal 	= "intelligences + character";
+  result;	
+}
+
+me = education("monte");
+
+library(stringr);	
+library(rvest);	
+
+# Research question:  who is a better actor?  Will Smith?  Denzel Washington?
+
+## actor ... person_id
+##			movie_id ... details
+##			name ... count movies
+
+# https://rvest.tidyverse.org/index.html
+
+## Denzel Washington [nm0000243] vs Will Smith [nm0000226]
+
+## https://www.imdb.com/filmosearch/?explore=title_type&role=nm0000243&ref_=filmo_ref_typ&sort=num_votes,desc&mode=detail&page=1&title_type=movie
+
+
+nmid = "nm0000226";
+will = grabFilmsForPerson(nmid);
+# plot(will$movies.50[,c(1,6,7:10)]);
+# boxplot(will$movies.50$millions);
+# widx =  which.max(will$movies.50$millions);
+# will$movies.50[widx,];
+# summary(will$movies.50$year); # bad boys for life ... did data change?
+
+nmid = "nm0000243";
+denzel = grabFilmsForPerson(nmid);
+# plot(denzel$movies.50[,c(1,6,7:10)]);
+# boxplot(denzel$movies.50$millions);
+# didx =  which.max(denzel$movies.50$millions);
+# denzel$movies.50[didx,];
+# summary(denzel$movies.50$year);
+
+par(mfrow=c(1,2));
+boxplot(will$movies.50$millions, main=will$name, ylim=c(0,360), ylab="Raw Millions" );
+boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab="Raw Millions" );
+par(mfrow=c(1,1));
+
+# data from 1920 to 2020 ... 101 years ...
+
+# bigger dollar gives a more accurate percent ...
+
+# read the values in "year"/"dollars" using rvest ...
+library(rvest);	
+
+inflation = function(infl)
+{
+  infl_vals <- c() # Inflated values
+  
+  infl.html = read_html(infl);
+  
+  infl.table = infl.html %>%
+    html_node(".expand-table-parent") %>%
+    html_node(".table-striped") %>%
+    html_node("tbody") %>%
+    html_nodes("tr");
+  
+  result = data.frame( matrix(nrow=length(infl.table), ncol=3));
+  colnames(result) = c("year","dollar","inflation");
+  
+  for(i in 1:length(infl.table) )
+  {
+    infl.row = infl.table[i]	%>% 
+      html_nodes("td") %>%
+      html_text();
+    
+    year = as.numeric(infl.row[1]);
+    temp = gsub('$','',infl.row[2],fixed=T);
+    temp = gsub(',','',temp,fixed=T);
+    dollar = as.numeric(temp);
+    temp = gsub('%','',infl.row[3],fixed=T);
+    inflation = as.numeric(temp);	
+    
+    result$year[i] = year;
+    result$dollar[i] = dollar;
+    result$inflation[i] = inflation;
+  }
+  infl_vals <- append(infl_vals,result[length(result[,2]),2]);
+  return(infl_vals)
+}
+
+
+## Will Smith movie millions adjusted for inflation
+Will.Year.Mil <- will$movies.50[,c(4,11)] # Extract just year and millions
+Will.Year.Mil <- Will.Year.Mil[order(Will.Year.Mil$year),] # Sort by year
+Will.Year.Mil$millions <- Will.Year.Mil$millions*1000000 # Actual money amount
+
+for(j in 1:dim(Will.Year.Mil)[1])
+{
+  if (is.na(Will.Year.Mil[j,2]))
+  {
+    Will.Year.Mil$millions.2000[j] <- NA
+    next
+  }
+  if (Will.Year.Mil[j,1] == 2019) # Hard coded values since 2019-2020 don't work with website 
+  {
+    Will.Year.Mil$millions.2000[46] <- 360349105.97 
+    Will.Year.Mil$millions.2000[47] <- 20826791.90
+    Will.Year.Mil$millions.2000[48] <- NA
+    Will.Year.Mil$millions.2000[49] <- 790505.97
+    Will.Year.Mil$millions.2000[50] <- 204420000.00
+    break
+  }
+  infl <- paste("https://www.officialdata.org/us/inflation/",Will.Year.Mil[j,1],"?endYear=2020&amount=",Will.Year.Mil[j,2],sep="")
+  result <- inflation(infl) # Millions value with 2020 inflation
+  Will.Year.Mil$millions.2000[j] <- result[1]; # Add to millions.2000 column
+}
+
+## Denzel Washington movie millions adjusted for inflation
+Denzel.Year.Mil <- denzel$movies.50[,c(4,11)]
+Denzel.Year.Mil <- Denzel.Year.Mil[order(Denzel.Year.Mil$year),] # Sort by year
+Denzel.Year.Mil$millions <- Denzel.Year.Mil$millions*1000000 # Actual money amount
+
+for(j in 1:dim(Denzel.Year.Mil)[1])
+{
+  if (is.na(Denzel.Year.Mil[j,2]))
+  {
+    Denzel.Year.Mil$millions.2000[j] <- NA
+    next
+  }
+  if (Denzel.Year.Mil[j,1] == 2020)
+  {
+    break
+  }
+  infl = paste("https://www.officialdata.org/us/inflation/",Denzel.Year.Mil[j,1],"?endYear=2020&amount=",Denzel.Year.Mil[j,2],sep="")
+  result <- inflation(infl) # Millions value with 2020 inflation
+  Denzel.Year.Mil$millions.2000[j] <- result[1]; # Add to millions.2000 column
+}
+```
+
+## Question 7
+```{r}
+# Comparing millions
+par(mfrow=c(1,2));
+boxplot(will$movies.50$millions, main=will$name, ylim=c(0,360), ylab="Raw Millions" );
+boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab="Raw Millions" );
+
+# Comparing millions.2000
+par(mfrow=c(1,2));
+boxplot(Will.Year.Mil$millions.2000, main=will$name, ylim=c(0,5e+08), ylab="Adjusted Millions" );
+boxplot(Denzel.Year.Mil$millions.2000, main=denzel$name, ylim=c(0,5e+08), ylab="Adjusted Millions" );
+
+# Comparing ratings
+par(mfrow=c(1,2));
+boxplot(will$movies.50$ratings, main=will$name, ylim=c(4.5,8.5), ylab="Ratings" );
+boxplot(denzel$movies.50$ratings, main=denzel$name, ylim=c(4.5,8.5), ylab="Ratings" );
+
+# Comparing metacritic
+par(mfrow=c(1,2));
+boxplot(will$movies.50$metacritic, main=will$name, ylim=c(20,80), ylab="Metacritic" );
+boxplot(denzel$movies.50$metacritic, main=denzel$name, ylim=c(20,80), ylab="Metacritic" );
+
+# Comparing votes
+par(mfrow=c(1,2));
+boxplot(will$movies.50$votes, main=will$name, ylim=c(0,5.5e+05), ylab="Votes" );
+boxplot(denzel$movies.50$votes, main=denzel$name, ylim=c(0,5.5e+05), ylab="Votes" );
+```
+
