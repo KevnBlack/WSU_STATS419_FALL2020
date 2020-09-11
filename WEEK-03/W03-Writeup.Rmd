@@ -12,7 +12,6 @@ output:
   html_document:
     df_print: paged
 email: "kevin.black@wsu.edu"
-wsu-id: "11480710"
 course: "STATS 419 Survey of Multivaritate Analysis"
 course-short: "STATS 419"
 instructor: "Monte J. Shaffer"
