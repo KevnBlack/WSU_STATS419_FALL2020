@@ -302,7 +302,7 @@ To objectively determine who is the better actor, I will be comparing the two ac
 In terms of raw millions, the following side-by-side box plots show that Will Smith excels over Denzel Washington when it comes to the interquartile range (covers a wider and higher range of values), median (slightly higher than Denzel’s median), and maximum value (nearly twice the value of Denzel’s maximum). Although, since these are the raw millions data, it’s not a reliable source of information for determining whose films made more from the box office since their films span numerous decades without adjusting for inflation. This is addressed in the next box plot comparison and will hopefully give some definite insight into whose films brought in more money.
 ```{r, fig.align="center"}
 # Comparing millions
-par(mfrow=c(1,2));
+par(mfrow=c(1,2), mar=c(1,4,2,2));
 boxplot(will$movies.50$millions, main=will$name, ylim=c(0,360), ylab="Raw Millions");
 boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab="Raw Millions");
 ```
@@ -310,7 +310,7 @@ boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab="Raw Mi
 After adjusting the number of millions to today’s values in question 6, it appears to be that Will Smith still made more from his top 50 movies than Denzel Washington even after adjusting for inflation. We can see that the following box plots in this comparison look pretty similar to the raw millions one, so it’s fair to make the same conclusions as the one above with regard to the interquartile range, median, and max value. Thus, I can make the firm statement that Will Smith’s top 50 movies brought in more money at the box office than the top 50 movies of Denzel Washington.
 ```{r, fig.align="center"}
 # Comparing millions.2000
-par(mfrow=c(1,2));
+par(mfrow=c(1,2), mar=c(1,4,2,2));
 boxplot(Will.Year.Mil$millions.2000, main=will$name, ylim=c(0,5e+08), 
         ylab="Adjusted Millions");
 boxplot(Denzel.Year.Mil$millions.2000, main=denzel$name, ylim=c(0,5e+08), 
@@ -320,7 +320,7 @@ boxplot(Denzel.Year.Mil$millions.2000, main=denzel$name, ylim=c(0,5e+08),
 One could argue that based on the adjusted millions box plot that Will Smith was clearly the “better” actor, but other variables, like ratings of their movies, play a significant role in making that claim as well. From what we can see in the following box plots, Denzel Washington has a higher median and interquartile range for his ratings, as well as a higher minimum than Will Smith. On the contrary, Will Smith has a lower minimum rating, lower interquartile range, and lower median, but he possess’ a higher maximum rating. Based on these observations, I can make the objective claim that the quality of Denzel Washington’s movies are higher than Will Smith’s.
 ```{r, fig.align="center"}
 # Comparing ratings
-par(mfrow=c(1,2));
+par(mfrow=c(1,2), mar=c(1,4,2,2));
 boxplot(will$movies.50$ratings, main=will$name, ylim=c(4.5,8.5), ylab="Ratings");
 boxplot(denzel$movies.50$ratings, main=denzel$name, ylim=c(4.5,8.5), ylab="Ratings");
 ```
@@ -328,7 +328,7 @@ boxplot(denzel$movies.50$ratings, main=denzel$name, ylim=c(4.5,8.5), ylab="Ratin
 While we just went over ratings for their movies, those ratings came strictly from IMDb, whereas the following box plots illustrate the more general ratings for their movies, known as Metacritic. For this box plot comparison, we can pretty much make the same conclusions as the box plot comparison for IMDb ratings, except in this case Denzel Washington excels in every box plot category over Will Smith, including the maximum rating value. Given the previous statement, I can claim that Denzel Washington generally has a higher quality of his top 50 movies than that of Will Smith.
 ```{r, fig.align="center"}
 # Comparing metacritic
-par(mfrow=c(1,2));
+par(mfrow=c(1,2), mar=c(1,4,2,2));
 boxplot(will$movies.50$metacritic, main=will$name, ylim=c(20,80), ylab="Metacritic");
 boxplot(denzel$movies.50$metacritic, main=denzel$name, ylim=c(20,80), ylab="Metacritic");
 ```
@@ -336,9 +336,9 @@ boxplot(denzel$movies.50$metacritic, main=denzel$name, ylim=c(20,80), ylab="Meta
 The following final box plot comparison shows the IMDb votes for both actors, which potentially shows the loyalty of each actor’s fan base for them going out of their way to vote for those movies and could possibly translate to a more favored actor. From what we can observe, Denzel Washington’s top 50 movies generally have a lower minimum and maximum of votes, smaller interquartile range, and lower median. These observations could, as mentioned earlier, indicate the loyalty of a fanbase because of them actually voting for these actor’s movies, in which case Will Smith appears to be the more beloved actor in terms of votes received for his top 50 movies, but does not necessarily contribute to him being the “better” actor.
 ```{r, fig.align="center"}
 # Comparing votes
-par(mfrow=c(1,2));
-boxplot(will$movies.50$votes, main=will$name, ylim=c(0,5.5e+05), ylab="Votes");
-boxplot(denzel$movies.50$votes, main=denzel$name, ylim=c(0,5.5e+05), ylab="Votes");
+par(mfrow=c(1,2), mar=c(1,4,2,2))
+boxplot(will$movies.50$votes, main=will$name, ylim=c(0,5.5e+05), ylab="Votes")
+boxplot(denzel$movies.50$votes, main=denzel$name, ylim=c(0,5.5e+05), ylab="Votes")
 ```
 
 After performing multiple box plot comparisons for a multitude of variables from the top 50 movies for Will Smith and Denzel Washington, I can objectively come to a definite answer for the research question presented by instructor Monte Shaffer. To reiterate, the research question stated earlier in question 6 is “Who is a better actor? Will Smith or Denzel Washington?”. Based on the comparisons made above, Will Smith’s top 50 movies took over Denzel Washington’s movies when it came to the raw/adjusted millions and IMDb votes received, but Denzel Washington came out on top with his IMDb and Metacritic ratings. In my opinion, and what I'm sure many others can agree on, the question of “who is a better actor” really comes down to the quality of the actor and the everlasting impact of their movies, and not necessarily how much money one’s movies made; there have definitely been some high grossing movies with bad actors. Thus, I can conclude that while Will Smith exceled in some box plot comparisons, the better actor between the two ultimately comes down to **Denzel Washington**, for his superior quality of acting in his top 50 movies, which is portrayed by the box plots of his IMDb and Metacritic ratings.
