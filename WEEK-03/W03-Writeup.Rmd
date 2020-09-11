@@ -1,34 +1,133 @@
 ---
-title: "Week 03 Assignment"
+title: "Week 03 Assignment: datasets_revisted"
 author: "Kevin Black"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  pdf_document:
+    citation_package: natbib
+    latex_engine: pdflatex
+    template: ./../latex-templates/homework.tex
+  html_document:
+    df_print: paged
 email: "kevin.black@wsu.edu"
 wsu-id: "11480710"
 course: "STATS 419 Survey of Multivaritate Analysis"
+course-short: "STATS 419"
 instructor: "Monte J. Shaffer"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-output: pdf_document
+fig_caption: true
+number_sections: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Question 1
+Create the “rotate matrix” functions described in lectures from the sample matrix. Apply to the example “myMatrix”.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+\  
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+I was able to create my matrix rotation functions by implementing two simple steps in the rotateMatrix90 function: Take a matrix and reverse the columns using the apply function, then transpose that reversed matrix, thus creating a rotation effect. For the rotateMatrix180 and rotateMatrix270 functions, I simply performed two 90° rotations for the former, as well as a 180° rotation and a 90° rotation for the latter. R code for the rotation functions can be found below along with their respective outputs. I chose this approach of reversing and transposing because matrix multiplication was preferred by the instructor, not required, and this approach was simpler/easier to implement and gives the desired output.  
+```{r}
 
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
+\newpage
 
-You can also embed plots, for example:
+## Question 2
+Recreate the graphic for the IRIS Data Set using R. Same titles, same scales, same colors.See: https://
+en.wikipedia.org/wiki/Iris_flower_data_set#/media/File:Iris_dataset_scatterplot.svg
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+\  
+
+I was able to recreate the specified graphic with the R code below, which produced the following scatterplot matrix. This block of code can be described by the following: x=iris[,1:4] supplies pairs with the data points for just the sepal and petal lengths/widths, pch = 21 is a particular plotting symbol that plots those data points as a filled circle, bg = c(“red”, “green”, “blue”)[iris$Species] colors those data points according to their species type, and the main parameter specifies the title of the scatterplot matrix.
+```{r}
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+\newpage
+
+## Question 3
+Write 2-3 sentences concisely defining the IRIS Data Set. Maybe search KAGGLE for a nice template. Be certain the final writeup are your own sentences (make certain you modify what you find, make it your own, but also cite where you got your ideas from).
+
+\  
+
+The Iris data set is a multivariate collection of 150 total observations consisting of an ID, measured in centimeters the sepal length, sepal width, petal length, petal width, and describing the species for three different iris flower species; Iris setosa, Iris virginica, and Iris versicolor. This dataset was introduced by Ronald Fisher in his 1936 paper ‘The use of multiple measurements in taxonomic problems’, but the data itself was collected by Edgar Anderson and utilized in his own paper ‘The species problem in Iris’ in the same year (Fisher, 1936; Anderson, 1936). It is quite apparent that this Iris data set is relatively famous as it is typically used as a
+starting point in understanding common concepts in data analysis and practicing exploratory data analysis for aspiring data scientists and analysts.
+
+\newpage
+
+## Question 4
+Import "personality-raw.txt" into R. Remove the V00 column. Create two new columns from the current column "date_test": year and week. Stack Overflow may help:
+https://stackoverflow.com/questions/22439540/how-to-get-week-numbers-from-dates ... Sort the new data frame by YEAR, WEEK so the newest tests are first ... The newest tests (e.g., 2020 or 2019) are at the top of the data frame. Then remove duplicates using the unique function based on the column "md5_email". Save the data frame in the same "pipe-delimited format" ( | is a pipe ) with the headers. You will keep the new data frame as "personality-clean.txt" for future work (you will not upload it at this time). In the homework, for this task, report how many records your raw dataset had and how many records your clean dataset has.
+
+\  
+
+For cleaning up and modifying personality-raw.txt, I was able to accomplish the required steps with the R code below. As a side note: I did not use the unique function for removing duplicates, I used duplicated since it was easier, more straightforward, and still part of base R. For the last step, I used dim(df) before and after cleaning to see how many records each of the datasets had; personality-raw.txt had 838 rows, and personality-clean.txt had 678 rows.
+```{r}
+
+```
+
+\newpage
+
+## Question 5
+Write functions for doSummary and sampleVariance and doMode... test these functions in your homework on the "monte.shaffer@gmail.com" record from the clean dataset. Report your findings. For this "monte.shaffer@gmail.com" record, also create z-scores. Plot(x,y) where x is the raw scores for "monte.shaffer@gmail.com" and y is the z-scores from those raw scores. Include the plot in your assignment, and write 2 sentences describing what pattern you are seeing and why this pattern is present.
+
+\  
+
+After creating functions for doSummary, sampleVariance, and doMode, I’m able to report the various summary statistics about the “monte.shaffer@gmail.com” record or, in terms of md5, “b62c73c...” in Figure 2 below. It is also worth noting that the record was trimmed of the columns md5_email, date_test, YEAR, and WEEK, leaving only the numerical values. Additionally, per the assignment description, I generated z-scores for the record’s numerical values, of which a plot for the scores can be found below in Figure 3. After plotting the raw scores against the z-scores, there appears to be a linear relationship between both sets of scores. I believe this pattern is present because we are standardizing the data using the formula $z=\frac{x-\mu}{\sigma}$, which establishes how z-scores for a normal distribution can be expressed by the scope of a linear function. R code for the above functions and other functionalities can be found below.
+```{r}
+
+```
+
+\newpage
+
+## Question 6
+Compare Will Smith and Denzel Washington. [See 03_n greater 1-v2.txt for the necessary functions and will-vs-denzel.txt for some sample code]. You will have to create a new variable \$millions.2000 that converts each movie's \$millions based on the \$year of the movie, so all dollars are in the same time frame. You will need inflation data from about 1980-2020 to make this work.
+
+\
+
+To compare Will Smith and Denzel Washington in an objective manner, Monte Shaffer supplied us with somewhat abstruse R code, expects us to compare the various variables for their movies, and provided us with the research question “Who is a better actor? Will Smith or Denzel Washington?” The latter question will be answered in A7 as that question focuses on comparing several variables between both actors, while this question will focus more on adjusting box office values of the past to today’s time frame for a more accurate comparison of films by gross income. To make the data easier to work with, I isolated the year and millions columns from the actor$movies.50 data frame, sorted the data frame by year, and converted the millions column into their actual values by multiplying each value by 1,000,000. I then created the new variable millions.2000 in this same data frame and added the adjusted values to each film’s box office value. R code for the described functionalities can be found on the next two pages and is generally the same for both actors. Example output for the resulting data frame can be found immediately following the R code. Note: For some reason the functions provided by Monte Shaffer didn’t work for the years 2019-2020 for Will Smith as it probably has something to do with the web page elements being slightly different for those years, although I just manually calculated the adjusted values and hard-coded them into the data frame since there were only five entries that had this issues. Additionally, the only thing I changed in the provided functions was rearranging the operations for scraping the inflation data into its own function for ease of access as I went through the data frame.
+```{r}
+
+```
+
+\newpage
+
+## Question 7
+Build side-by-side box plots on several of the variables (including #6) to compare the two movie stars. After each box plot, write 2+ sentences describing what you are seeing, and what conclusions you can logically make. You will need to review what the box plot is showing with the box portion, the divider in the box, and the whiskers.
+
+\  
+
+For comparing the various variables for the Will Smith and Denzel Washington data frames, I utilized the following small portion of R code found within one of the text files provided by Monte Shaffer, which is generalized because it follows the same format for each comparison.
+
+To objectively determine who is the better actor, I will be comparing the two actors based on five variables: millions, millions.2000, ratings, metacritic, and votes. Also, to swiftly review on the anatomy of a box plot; the box portion represents the interquartile range of the data, the divider in the box represents the median of the data, and the whiskers represent the minimum and maximum of the data (left-to-right or bottom-to-top depending on the orientation of the box plot). Each box plot comparison and conclusive statements can be found below.
+
+In terms of raw millions, these side-by-side box plots show that Will Smith excels over Denzel Washington when it comes to the interquartile range (covers a wider and
+higher range of values), median (slightly higher than Denzel’s median), and maximum value (nearly twice the value of Denzel’s maximum). Although, since these are the raw millions data, it’s not a reliable source of information for determining whose films made more from the box office since their films span numerous decades without adjusting for inflation. This is addressed in the next box plot comparison and will
+hopefully give some definite insight into whose films brought in more money.
+```{r}
+
+```
+
+After adjusting the number of millions to today’s values in A6, it appears to be that Will Smith still made more from his top 50 movies than Denzel Washington even after adjusting for inflation. We can see that the box plots in this comparison look pretty similar to the raw millions one, so it’s fair to make the same conclusions as the one above with regard to the interquartile range, median, and max value. Thus, I can make the firm statement that Will Smith’s top 50 movies brought in more money at the box office than the top 50 movies of Denzel Washington.
+```{r}
+
+```
+
+One could argue that based on the adjusted millions box plot that Will Smith was clearly the “better” actor, but other variables, like ratings of their movies, play a significant role in making that claim as well. From what we can see in these box plots, Denzel Washington has a higher median and interquartile range for his ratings, as well as a higher minimum than Will Smith. On the contrary, Will Smith has a lower minimum rating, lower interquartile range, and lower median, but he possess’ a higher maximum rating. Based on these observations, I can make the objective claim that the quality of Denzel Washington’s movies are higher than Will Smith’s.
+```{r}
+
+```
+
+While we just went over ratings for their movies, those ratings came strictly from IMDb, whereas these box plots illustrate the more general ratings for their movies, known as Metacritic. For this box plot comparison, we can pretty much make the same conclusions as the box plot comparison for IMDb ratings, except in this case Denzel Washington excels in every box plot category over Will Smith, including the maximum rating value. Given the previous statement, I can claim that Denzel Washington generally has a higher quality of his top 50 movies than that of Will Smith.
+```{r}
+
+```
+
+This final box plot comparison shows the IMDb votes for both actors, which potentially shows the loyalty of each actor’s fan base for them going out of their way to vote for those movies and could possibly translate to a more favored actor. From what we can observe, Denzel Washington’s top 50 movies generally have a lower minimum and maximum of votes, smaller interquartile range, and lower median.These observations could, as mentioned earlier, indicate the loyalty of a fanbase because of them actually voting for these actor’s movies, in which case Will Smith appears to be the more beloved actor in terms of votes received for his top 50 movies, but does not necessarily contribute to him being the “better” actor.
+```{r}
+
+```
+
+After performing multiple box plot comparisons for a multitude of variables from the top 50 movies for Will Smith and Denzel Washington, I can objectively come to a definite answer for the research question presented by instructor Monte Shaffer. To reiterate, the research question stated earlier in A6 is “Who is a better actor? Will Smith or Denzel Washington?”. Based on the comparisons made above, Will Smith’s top 50 movies took over Denzel Washington’s movies when it came to the raw/adjusted millions and IMDb votes received, but Denzel Washington came out on top with his IMDb and Metacritic ratings. The question of “who is a better actor” really comes down to the quality of the actor and the everlasting impact of their movies, and not necessarily how much money one’s movies made; there have definitely been some high grossing movies with terrible actors. Thus, I can conclude that while Will Smith exceled in some box plot comparisons, the better actor between the two ultimately comes down to **Denzel Washington**, for his superior quality of acting in his top 50 movies, which is portrayed by the box plots of his IMDb and Metacritic ratings.
