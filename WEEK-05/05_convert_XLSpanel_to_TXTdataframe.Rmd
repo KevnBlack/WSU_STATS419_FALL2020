@@ -13,22 +13,22 @@ my-var: "monte"  # https://bookdown.org/yihui/rmarkdown/html-document.html
 
 ```{r, chunk-get-keys}
 
-path.measure = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/project_01_measure";  
+path.measure = "D:/School/Fall 2020/STAT 419/Project 1";  
   # change this to wherever measure.xls lives for you...  
   # YOU SHOULD USE MINE IN THE DROPBOX AS THE EXAMPLE...
   # BELOW, we will import yours ...
 
 library(readxl);
 
-covariates = read_excel(paste0(path.measure,"/","measure.xlsx"), sheet="covariates");
-panel = read_excel(paste0(path.measure,"/","measure.xlsx"), sheet="panel");
+covariates = read_excel(paste0(path.measure,"/","03_measure_data_collection.xlsx"), sheet="covariates");
+panel = read_excel(paste0(path.measure,"/","03_measure_data_collection.xlsx"), sheet="panel");
 
 # these are currently in "tibble form"
 
 covariates = as.data.frame(covariates);
 panel = as.data.frame(panel);
 
-library(humanVerseWSU);
+#library(humanVerseWSU);
 
 panel.first = panel$`person_id`[1];  # 1c2408654ef5a2fe1fc962088312266c
 
@@ -52,14 +52,14 @@ Using the sample file provided, we have all the known keys.  Now, we will use th
 
 ```{r, chunk-get-your-data}
 
-path.your.measure.file = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/project_01_measure";  
+path.your.measure.file = "D:/School/Fall 2020/STAT 419/Project 1";  
   # change this to wherever measure.xls lives for you...  
   # YOU SHOULD USE MINE IN THE DROPBOX AS THE EXAMPLE...
   # BELOW, we will import yours ...
 
 
-covariates = read_excel(paste0(path.measure,"/","measure.xlsx"), sheet="covariates");
-panel = read_excel(paste0(path.measure,"/","measure.xlsx"), sheet="panel");
+covariates = read_excel(paste0(path.measure,"/","03_measure_data_collection.xlsx"), sheet="covariates");
+panel = read_excel(paste0(path.measure,"/","03_measure_data_collection.xlsx"), sheet="panel");
 
 # these are currently in "tibble form"
 
@@ -72,7 +72,7 @@ for(i in 1:n.cov)
   {
   covariates.row = covariates[i,];
   
-  final.row = as.data.frame( t(rep("NA",37)) ); 
+  final.row = as.data.frame( t(rep("NA",37)), stringsAsFactors=FALSE); 
   colnames(final.row) = tabularized.cols;
   
   final.row$`data_collector` = collector = covariates.row$`data_collector`;
@@ -105,7 +105,7 @@ str(tabularized.df);
 
 # save as a TXT file, pipe-delimited using your data_collector id
 
-collector = "04343803d489fe8ee2c5f6ab97a101e9";
+collector = "496992a2af31b7dd402de240a3969a64";
 outfile = paste0(path.measure,"/","measure","-",collector,".txt");
 
 utils::write.table( tabularized.df , file=outfile, quote=FALSE, col.names=TRUE, row.names=FALSE, sep="|");
