@@ -61,6 +61,7 @@ packageVersion("humanVerseWSU");  # should be ‘0.1.4’+
 
 library(rvest);
 library(magrittr);
+library(DescTools)
 # how long after commit/push before "raw" becomes live?
 # unraw was immediate ...  3:50 AM ... about 7 minutes https://github.com/MonteShaffer/humanVerseWSU/blob/master/humanVerseWSU/R/functions-cleanup.R
 # sometimes it is immediate ...
@@ -93,7 +94,7 @@ We need a location to store our data (page.html).  I will create folder name, ba
 
 ```{r, chunck-prep-data-storage}
 
-local.data.path = "R:/";  # to store HTML files, cached data-objects
+local.data.path = "D:/";  # to store HTML files, cached data-objects
       # I generally use large drives because they fill up
       # Having the C:/ run out can be bad 
       # Today's project [~6MB zipped]
@@ -637,7 +638,7 @@ Similarly `saveRDS` and `readRDS` for binary forms.  When I have a list, at time
 ### maps
 ```{r, chunck-state-maps}
 library(humanVerseWSU);
-latlong = removeAllColumnsBut(capitals,c("State","Capital","latitude","longitude","Population..2019.est..") );
+latlong = removeAllColumnsBut(capitals,c("State","Capital","latitude","longitude","Population (2019 est.)") );
 
 colnames(latlong) = c("state","capital","latitude","longitude","population");
 
@@ -685,7 +686,7 @@ text(x = latlong$longitude, y = latlong$latitude,
 ### usmap
 ```{r, chunck-state-usmap}
 library(humanVerseWSU);
-latlong = removeAllColumnsBut(capitals,c("State","Capital","latitude","longitude","Population..2019.est..") );
+latlong = removeAllColumnsBut(capitals,c("State","Capital","latitude","longitude","Population (2019 est.)") );
 
 colnames(latlong) = c("state","capital","latitude","longitude","population");
 
@@ -806,6 +807,47 @@ Above are `plot` suggestions, and you are welcome to use ``ggplot2` if that is y
 ## Your graph goes here
 
 Create a "one graph" for "Whitefish, Montana" Climate Data using R ... <https://en.wikipedia.org/wiki/Whitefish%2C_Montana#Climate>.
+
+```{r}
+# YOU MUST RUN CHUNK AT LINE 139 FOR THIS CHUNK TO WORK FOR WHITEFISH, MONTANA
+whitefish <- climate$df # Climate data
+recHigh <- climate$df[1,3:14] # Isolate values from climate df
+avgHigh <- climate$df[3,3:14]
+dailyMean <- climate$df[5,3:14]
+avgLow <- climate$df[7,3:14]
+recLow <- climate$df[9,3:14]
+precip <- climate$df[11,3:14]
+snowfall <- climate$df[13,3:14]
+months <- c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+x <- factor(months,levels=months) # Create factor so months can be plotted
+
+# Plot climate data on same graph
+plot(x,recHigh,type="o",col="red",lty=1,pch=0,
+     ylim=c(-35,105),xlab="Month",ylab="Temp (F), Precip/Snowfall (in)",
+     main="Climate Data for Whitefish, Montana",
+     xaxt="none",yaxt="none") 
+
+axis(1,seq(1,12,1)) # Include months 1-12
+axis(2,seq(-35,105,10)) # Format temps
+
+points(x,avgHigh,pch=2,col="orange") # Plot points and lines for every other data
+lines(x,avgHigh,lty=2,col="orange")
+points(x,dailyMean,pch=1)
+lines(x,dailyMean,lty=3)
+points(x,avgLow,pch=6,col="lightskyblue")
+lines(x,avgLow,lty=2,col="lightskyblue")
+points(x,recLow,pch=0,col="blue")
+lines(x,recLow,lty=1,col="blue")
+points(x,precip,pch=17,col="lightgreen")
+lines(x,precip,lty=2,col="lightgreen")
+points(x,snowfall,pch=8,col="lavenderblush3")
+lines(x,snowfall,lty=3,col="lavenderblush3")
+
+# Legend
+legend(1.5,-30, legend=c("Rec High","Avg High","Daily Mean","Avg Low","Rec Low","Preciptation","Snowfall"),
+       col=c("red","orange","black","lightskyblue","blue","lightgreen","lavenderblush3"), 
+       lty=c(1,2,3,2,1,2,3),cex=0.5,horiz=T)
+```
 
 You would source it as being from Wikipedia (Accessed October X, 2020).
 
