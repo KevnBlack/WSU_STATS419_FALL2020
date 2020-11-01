@@ -109,7 +109,7 @@
 \href{mailto:kevin.black@wsu.edu}{\nolinkurl{kevin.black@wsu.edu}}\vspace{0.05in} \newline\normalsize\emph{Washington State University Vancouver}  }
 
 
-\date{October 31, 2020}
+\date{November 01, 2020}
 \setcounter{secnumdepth}{3}
 
 \usepackage{titlesec}
@@ -383,7 +383,7 @@ nonlinear growth curves; Richard's curve; simulated critical points \par
     
     \hbox{\vrule height .2pt width 39.14pc}
     \vskip 5pt 
-    \hfill \textbf{\textcolor{WSU.gray}{ October 31, 2020 } }
+    \hfill \textbf{\textcolor{WSU.gray}{ November 01, 2020 } }
     \vskip 5pt 
     
 \end{abstract}
@@ -440,14 +440,14 @@ As mentioned in the introduction, the data set utilized throughout this
 research paper was supplied through the combined efforts of professor
 Monte Shaffer and the students of the STAT 419 class at Washington State
 University. Each student was tasked with recording distinct observations
-of 37 variables from 10 different people, ideally with an even mix of
+of 37 attributes from 10 different people, ideally with an even mix of
 males and females. For each observation (person), there are measurements
-of body parts, data collector/surveyor identifiers ran through a MD5
-hash function, and general information about each surveyor. Body part
+of body parts, data collector/respondent identifiers ran through a MD5
+hash function, and general information about each respondent. Body part
 measurements were recorded using body measuring tape in either inches or
 centimeters, but for the sake of consistency throughout the research
 paper, all centimeter values were converted to inches and will be
-referred to in inches.
+treated as inches from here on.
 
 \vspace{0.25cm}
 
@@ -457,12 +457,12 @@ observations were recorded amid the COVID-19 pandemic, each student was
 required to make a simple, yet descriptive handout that would detail how
 one would go about recording their own body measurements and the
 necessary values to take note of. This would be an ideal situation of
-how observations were recorded and sent electronically by each surveyor,
-but observations could also be taken in person given that the recorder
-and surveyor were comfortable being in close proximity of each other. An
-example of a two-page handout created by Kevin Black, as well as further
-information regarding this data set, can be found in Appendix
-\ref{sec:appendix-data-handout} and Appendix
+how observations were recorded and sent electronically by each
+respondent, but observations could also be taken in person given that
+the surveyor and respondent were comfortable being in close proximity of
+each other. An example of a two-page handout created by Kevin Black, as
+well as further information regarding this data set, can be found in
+Appendix \ref{sec:appendix-data-handout} and Appendix
 \ref{sec:appendix-dataset-ex}, respectively.
 
 \vspace{0.25cm}
@@ -533,88 +533,28 @@ a good starting point for garnering crucial experience.
 \label{sec:appendix-dataset-ex}
 
 In addition to how the data set was described in Section \ref{sec:data},
-explanations regarding each variable can be found below. After the
+explanations regarding each attribute can be found below. After the
 collaborative effort of all students having their data compiled, the
 data set ended up having 428 total observations. However, the data set
-was filled with an enormous amount of NA values, potentially due to the
-time constraints of some students or lack of attempt to fill out all
-fields. As a result, running the function \texttt{na.omit()} on the data
-set during the data cleaning process returned a data frame containing
-only 176 observations, about 41.12\% of the original data set size.
+was filled with an enormous amount of NA values in the body
+measurements, potentially due to the time constraints of some students
+or lack of attempt to fill out all fields. As a result, running the
+function \texttt{complete.cases()} on the data set during the data
+cleaning process returned a data frame containing only 262 observations,
+about 61.21\% of the original data set size. \texttt{complete.cases()}
+was used over \texttt{na.omit()} because the latter function would omit
+all rows containing NA values based on all columns, including the rows
+where the non-body measurement attributes had NA values, whereas the
+former function would omit NA values only for the specified body
+measurement columns.
 
 \begin{figure}[!ht]
     \caption{ \textbf{Description of Each Field} }
     \begin{center}
-        \scalebox{1.00}{    \includegraphics[trim = 25 350 25 35,clip,width=0.85\textwidth]{pdfs/datasets_explained.pdf} }
+        \scalebox{1.00}{    \includegraphics[trim = 0 350 100 35,clip,width=0.85\textwidth]{pdfs/datasets_explained.pdf} }
     \end{center}
     \label{fig:datasets_explained}
 \end{figure}
-
-\begin{itemize}
-\tightlist
-\item
-  data\_collector:
-\item
-  person\_id:
-\item
-  side:
-\item
-  height: Standing height of the individual with no shoes on.
-\item
-  head.height: Height from the top of the head to below the chin.
-\item
-  head.circumference: Distance around the head, measured above the
-  eyes/ears.
-\item
-  hand.length: Length of the hand from the middle finger to the wrist
-  (just below the palm).
-\item
-  hand.width: Width of a fully stretched hand from the pinky finger to
-  the thumb.
-\item
-  hand.elbow: Length from the middle finger to the elbow.
-\item
-  elbow.armpit: Length from the elbow to the arm pit.
-\item
-  arm.reach: Length from floor to the extended arm maximum point,
-  standing flatfooted.
-\item
-  arm.span: Length from one middle finger to the other, with fully
-  extended arms.
-\item
-  foot.length: Length of the foot from the largest toe to the back of
-  the heel.
-\item
-  floor.kneepit: Distance from the floor to the knee pit.
-\item
-  floor.hip: Distance from the floor to the hip.
-\item
-  floor.navel: Distance from the floor to the navel (belly button).
-\item
-  floor.armpit: Distance from the floor to the arm pit.
-\item
-  units:
-\item
-  writing:
-\item
-  eye:
-\item
-  eye\_color:
-\item
-  swinging:
-\item
-  age:
-\item
-  gender:
-\item
-  quality:
-\item
-  minutes:
-\item
-  ethnicity:
-\item
-  notes:
-\end{itemize}
 
 \newpage
 
@@ -630,32 +570,32 @@ referenced in this document.
 \KeywordTok{library}\NormalTok{(stats) }\CommentTok{# For cor()}
 \KeywordTok{library}\NormalTok{(devtools) }\CommentTok{# For source_url()}
 
-\CommentTok{# Source functions}
+\CommentTok{# Source cleaning function}
 \NormalTok{path.hub =}\StringTok{ "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"}
 \KeywordTok{source_url}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.hub,}\StringTok{"master/functions/functions-project-measure.R"}\NormalTok{))}
 
 \CommentTok{# Import data}
 \NormalTok{path.to.secret =}\StringTok{ "D:/School/Fall 2020/STAT 419/datasets/"}
 \NormalTok{measure =}\StringTok{ }\NormalTok{utils}\OperatorTok{::}\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.to.secret,}\StringTok{"measure-students.txt"}\NormalTok{), }
-                           \DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{,}\DataTypeTok{quote=}\StringTok{""}\NormalTok{,}\DataTypeTok{sep=}\StringTok{"|"}\NormalTok{)}
+                           \DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{quote =} \StringTok{""}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"|"}\NormalTok{)}
 \CommentTok{# Clean data}
 \NormalTok{measure.df =}\StringTok{ }\KeywordTok{prepareMeasureData}\NormalTok{(measure)}
 
 \CommentTok{# Isolate male and female data}
 \NormalTok{measure.df.m =}\StringTok{ }\NormalTok{measure.df[measure.df}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "male"}\NormalTok{,]}
 \NormalTok{measure.df.f =}\StringTok{ }\NormalTok{measure.df[measure.df}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "female"}\NormalTok{,]}
-\NormalTok{cor.m =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA,measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
-\NormalTok{cor.f =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA,measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
+\NormalTok{cor.m =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
+\NormalTok{cor.f =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
 
 \CommentTok{# Correlation Graphs}
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA,measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA,}
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{,}\KeywordTok{round}\NormalTok{(cor.m,}\DecValTok{5}\NormalTok{)),}
-     \DataTypeTok{xlab=}\StringTok{"Male Height (in)"}\NormalTok{,}\DataTypeTok{ylab=}\StringTok{"Male Arm Span (in)"}\NormalTok{,}\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA,}
+     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.m,}\DecValTok{5}\NormalTok{)),}
+     \DataTypeTok{xlab =} \StringTok{"Male Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Male Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{)}
 
-\KeywordTok{plot}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA,measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA,}
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{,}\KeywordTok{round}\NormalTok{(cor.f,}\DecValTok{5}\NormalTok{)),}
-     \DataTypeTok{xlab=}\StringTok{"Female Height (in)"}\NormalTok{,}\DataTypeTok{ylab=}\StringTok{"Female Arm Span (in)"}\NormalTok{,}\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA,}
+     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.f,}\DecValTok{5}\NormalTok{)),}
+     \DataTypeTok{xlab =} \StringTok{"Female Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Female Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

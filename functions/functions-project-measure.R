@@ -24,3 +24,26 @@ prepareMeasureData = function(measure){
   
   return(measure)
 }
+
+
+read.file = function(path){
+  tryCatch(
+    expr = {
+      # Open cleaned file if already available
+      measure = utils::read.csv(paste0(path.to.secret,"measure-clean.txt"),
+                                header = TRUE, quote = "", sep = "|")
+      return(measure)
+    },
+    warning = function(w){
+      # If no clean file, open original file
+      measure = utils::read.csv(paste0(path.to.secret,"measure-students.txt"),
+                                header = TRUE, quote = "", sep = "|")
+      # Clean data
+      measure = prepareMeasureData(measure)
+      
+      # Save cleaned data for later
+      write.table(measure,paste0(path.to.secret,"measure-clean.txt"),sep="|",quote=FALSE)
+      return(measure)
+    }
+  )    
+}

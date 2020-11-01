@@ -63,11 +63,11 @@ After receiving the data set ($n=428$) and cleaning up particular observations u
 \section{Data Description}
 \label{sec:data}
 
-As mentioned in the introduction, the data set utilized throughout this research paper was supplied through the combined efforts of professor Monte Shaffer and the students of the STAT 419 class at Washington State University. Each student was tasked with recording distinct observations of 37 variables from 10 different people, ideally with an even mix of males and females. For each observation (person), there are measurements of body parts, data collector/surveyor identifiers ran through a MD5 hash function, and general information about each surveyor. Body part measurements were recorded using body measuring tape in either inches or centimeters, but for the sake of consistency throughout the research paper, all centimeter values were converted to inches and will be referred to in inches.
+As mentioned in the introduction, the data set utilized throughout this research paper was supplied through the combined efforts of professor Monte Shaffer and the students of the STAT 419 class at Washington State University. Each student was tasked with recording distinct observations of 37 attributes from 10 different people, ideally with an even mix of males and females. For each observation (person), there are measurements of body parts, data collector/respondent identifiers ran through a MD5 hash function, and general information about each respondent. Body part measurements were recorded using body measuring tape in either inches or centimeters, but for the sake of consistency throughout the research paper, all centimeter values were converted to inches and will be treated as inches from here on.
 
 \vspace{0.25cm}
 
-These observations were recorded in early September 2020 and compiled by the instructor for our use in late October 2020. Given that these observations were recorded amid the COVID-19 pandemic, each student was required to make a simple, yet descriptive handout that would detail how one would go about recording their own body measurements and the necessary values to take note of. This would be an ideal situation of how observations were recorded and sent electronically by each surveyor, but observations could also be taken in person given that the recorder and surveyor were comfortable being in close proximity of each other. An example of a two-page handout created by Kevin Black, as well as further information regarding this data set, can be found in Appendix \ref{sec:appendix-data-handout} and Appendix \ref{sec:appendix-dataset-ex}, respectively.
+These observations were recorded in early September 2020 and compiled by the instructor for our use in late October 2020. Given that these observations were recorded amid the COVID-19 pandemic, each student was required to make a simple, yet descriptive handout that would detail how one would go about recording their own body measurements and the necessary values to take note of. This would be an ideal situation of how observations were recorded and sent electronically by each respondent, but observations could also be taken in person given that the surveyor and respondent were comfortable being in close proximity of each other. An example of a two-page handout created by Kevin Black, as well as further information regarding this data set, can be found in Appendix \ref{sec:appendix-data-handout} and Appendix \ref{sec:appendix-dataset-ex}, respectively.
 
 \vspace{0.25cm}
 
@@ -125,17 +125,15 @@ On the surface, the purpose for writing this research paper and collecting the n
 
 \subsection{Data Set Explained}
 \label{sec:appendix-dataset-ex}
-In addition to how the data set was described in Section \ref{sec:data}, explanations regarding each variable can be found below. After the collaborative effort of all students having their data compiled, the data set ended up having 428 total observations. However, the data set was filled with an enormous amount of NA values, potentially due to the time constraints of some students or lack of attempt to fill out all fields. As a result, running the function `na.omit()` on the data set during the data cleaning process returned a data frame containing only 176 observations, about 41.12% of the original data set size.
+In addition to how the data set was described in Section \ref{sec:data}, explanations regarding each attribute can be found below. After the collaborative effort of all students having their data compiled, the data set ended up having 428 total observations. However, the data set was filled with an enormous amount of NA values in the body measurements, potentially due to the time constraints of some students or lack of attempt to fill out all fields. As a result, running the function `complete.cases()` on the data set during the data cleaning process returned a data frame containing only 262 observations, about 61.21% of the original data set size. `complete.cases()` was used over `na.omit()` because the latter function would omit all rows containing NA values based on all columns, including the rows where the non-body measurement attributes had NA values, whereas the former function would omit NA values only for the specified body measurement columns.
 
 \begin{figure}[!ht]
 	\caption{ \textbf{Description of Each Field} }
 	\begin{center}
-	    \scalebox{1.00}{	\includegraphics[trim = 25 350 25 35,clip,width=0.85\textwidth]{pdfs/datasets_explained.pdf} }
+	    \scalebox{1.00}{	\includegraphics[trim = 0 350 100 35,clip,width=0.85\textwidth]{pdfs/datasets_explained.pdf} }
 	\end{center}
 	\label{fig:datasets_explained}
 \end{figure}
-
-
 
 \newpage
 
@@ -155,51 +153,24 @@ source_url(paste0(path.hub,"master/functions/functions-project-measure.R"))
 
 # Import data
 path.to.secret = "D:/School/Fall 2020/STAT 419/datasets/"
-measure = utils::read.csv(paste0(path.to.secret,"measure-students.txt"), 
-                           header=TRUE,quote="",sep="|")
-# Clean data
-#measure.df = prepareMeasureData(measure)
-
-# Cleaning: omit NA values
-  measure = na.omit(measure)
-  
-  # Cleaning: consistent naming convention
-  measure$gender = factor(tolower(measure$gender))
-  measure$gender[measure$gender=="f"] = "female"
-  measure$gender[measure$gender=="m"] = "male"
-  measure$units = factor(tolower(measure$units))
-  measure$units[measure$units=="inches"] = "in"
-  measure$units[measure$units=="inch"] = "in"
-  measure$units[measure$units=="\"in\""] = "in"
-  measure$units[measure$units=="cm"] = "in"
-  
-  # Converting cm to inches
-  for(row in 1:nrow(measure)){
-    if(measure[row,]$units=="cm"){
-      measure[row,4:26] <- measure[row,4:26]/2.54
-    }
-  }
-  
-  # Scale data
-  measure[,4:26] <- scale(measure[,4:26])
-  
-  return(measure)
+measure.df = read.file(path.to.secret)
 
 # Isolate male and female data
 measure.df.m = measure.df[measure.df$gender == "male",]
 measure.df.f = measure.df[measure.df$gender == "female",]
-cor.m = cor(measure.df.m$height.NA,measure.df.m$arm.span.NA)
-cor.f = cor(measure.df.f$height.NA,measure.df.f$arm.span.NA)
+cor.m = cor(measure.df.m$height.NA, measure.df.m$arm.span.NA)
+cor.f = cor(measure.df.f$height.NA, measure.df.f$arm.span.NA)
 
 # Correlation Graphs
-par(mfrow=c(1,2))
-plot(measure.df.m$height.NA,measure.df.m$arm.span.NA,
-     main=paste("Correlation =",round(cor.m,5)),
-     xlab="Male Height (in)",ylab="Male Arm Span (in)",col="blue")
+par(mfrow = c(1,2))
+plot(measure.df.m$height.NA, measure.df.m$arm.span.NA,
+     main = paste("Correlation =", round(cor.m,5)),
+     xlab = "Male Height (in)", ylab = "Male Arm Span (in)", col = "blue")
 
-plot(measure.df.f$height.NA,measure.df.f$arm.span.NA,
-     main=paste("Correlation =",round(cor.f,5)),
-     xlab="Female Height (in)",ylab="Female Arm Span (in)",col="red")
+plot(measure.df.f$height.NA, measure.df.f$arm.span.NA,
+     main = paste("Correlation =", round(cor.f,5)),
+     xlab = "Female Height (in)", ylab = "Female Arm Span (in)", col = "red")
+
 ```
 
 
