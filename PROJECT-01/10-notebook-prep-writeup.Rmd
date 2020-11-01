@@ -119,26 +119,34 @@ I will be supporting the process of turning the results and data you prepare int
 # - We are required to make a variable measure.df assigned to a prepareMeasureData(measure) function that cleans the data. Our functions must be accessible from our GitHub repo via the source_url() function.
 # - measure-students.txt MUST NOT BE ON GITHUB AS IT IS A SECRET DATA FILE.
 
+# Import necessary libraries
 library(stats)
+library(devtools)
+
+# Source functions
+path.functions = "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"
+source_url(paste0(path.functions,"master/functions/functions-project-measure.R"))
 
 # Import data
 path.to.secret = "D:/School/Fall 2020/STAT 419/datasets/"
 measure = utils::read.csv( paste0(path.to.secret, "measure-students.txt"), header=TRUE, quote="", sep="|")
-
-
+measure.clean = prepareMeasureData(measure)
 
 # Isolate male and female data
-measure.m = measure[measure$gender == "male",]
-measure.f = measure[measure$gender == "female",]
+measure.clean.m = measure.clean[measure.clean$gender == "male",]
+measure.clean.f = measure.clean[measure.clean$gender == "female",]
+cor.m = cor(measure.clean.m$height.NA,measure.clean.m$arm.span.NA)
+cor.f = cor(measure.clean.f$height.NA,measure.clean.f$arm.span.NA)
 
+# Correlation Graphs
 par(mfrow=c(1,2))
-plot(measure.m$height.NA,measure.m$arm.span.NA,
-     main=paste("Correlation =",round(cor(measure.m$height.NA,measure.m$arm.span.NA),5)),
-     xlab="Male Height (in)",ylab="Male Arm Span (in)")
+plot(measure.clean.m$height.NA,measure.clean.m$arm.span.NA,
+     main=paste("Correlation =",round(cor.m,5)),
+     xlab="Male Height (in)",ylab="Male Arm Span (in)",col="blue")
 
-plot(measure.f$height.NA,measure.f$arm.span.NA,
-     main=paste("Correlation =",round(cor(measure.f$height.NA,measure.f$arm.span.NA),5)),
-     xlab="Female Height (in)",ylab="Female Arm Span (in)")
+plot(measure.clean.f$height.NA,measure.clean.f$arm.span.NA,
+     main=paste("Correlation =",round(cor.f,5)),
+     xlab="Female Height (in)",ylab="Female Arm Span (in)",col="red")
 
 ```
 

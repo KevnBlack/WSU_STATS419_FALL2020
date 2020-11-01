@@ -79,7 +79,7 @@ source_url ( paste0( path.github, "humanVerseWSU/R/functions-file.R" ) );
 # https://stackoverflow.com/questions/64476043/
 # https://stackoverflow.com/questions/1189759/
 
-path.to.secret = "D:/School/Fall 2020/STAT 419/git/WSU_STATS419_FALL2020/WEEK-10/";
+path.to.secret = "D:/School/Fall 2020/STAT 419/datasets/";
 
 measure = utils::read.csv( paste0(path.to.secret, "measure-students.txt"), header=TRUE, quote="", sep="|");
 

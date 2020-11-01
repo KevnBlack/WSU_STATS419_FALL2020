@@ -1,6 +1,6 @@
 prepareMeasureData = function(measure){
-  # Cleaning: omit NA values
-  measure = na.omit(measure)
+  # Cleaning: omit NA rows based measured values, not on $side
+  measure = measure[complete.cases(measure[,4:26]),]
   
   # Cleaning: consistent naming convention
   measure$gender = factor(tolower(measure$gender))
