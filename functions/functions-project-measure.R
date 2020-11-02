@@ -1,4 +1,4 @@
-prepareMeasureData = function(measure){
+prepareMeasureData = function(measure,scale){
   # Cleaning: omit NA rows based measured values, not on $side
   measure = measure[complete.cases(measure[,4:26]),]
   
@@ -19,14 +19,16 @@ prepareMeasureData = function(measure){
     }
   }
   
-  # Scale data
-  measure[,4:26] <- scale(measure[,4:26])
-  
+  # Scale data if scale = TRUE
+  if(scale){
+    measure[,4:26] <- scale(measure[,4:26])
+  }
+
   return(measure)
 }
 
 
-read.file = function(path){
+read.file = function(path,scale){
   tryCatch(
     expr = {
       # Open cleaned file if already available
@@ -39,7 +41,7 @@ read.file = function(path){
       measure = utils::read.csv(paste0(path.to.secret,"measure-students.txt"),
                                 header = TRUE, quote = "", sep = "|")
       # Clean data
-      measure = prepareMeasureData(measure)
+      measure = prepareMeasureData(measure,scale)
       
       # Save cleaned data for later
       write.table(measure,paste0(path.to.secret,"measure-clean.txt"),sep="|",quote=FALSE)

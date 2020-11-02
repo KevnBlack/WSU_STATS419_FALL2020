@@ -9,6 +9,7 @@ output:
     citation_package: natbib
     latex_engine: pdflatex
     template: ./../latex-templates/report.tex
+    extra_dependencies: ["hyperref"]
   html_document:
     df_print: paged
     
@@ -50,15 +51,27 @@ After receiving the data set ($n=428$) and cleaning up particular observations u
 
 \section{How does being male or female influence the ratios between certain body parts?}
 \label{sec:rq}
+Making particular deductions throughout history regarding body measurements among males and females is more than likely due to the distinct patterns one can find when comparing the biological sexes. Those born as males or females have about as many differing features to one another than their similar features, both internally and externally. Internally speaking, men typically have deeper voices, a faster metabolism, and can easily build muscle mass, whereas women possess a much more complicated reproductive system, have the ability to breastfeed, and live longer on average \citep{Wolchover:2011}. What about externally? How does being male or female influence the ratios between certain body parts? The latter primary question will be elaborated through the following sub-questions, focusing on particular ratios that are likely to yield some insight on the different external measurements between males and females.
 
 \subsection{How does 'height' compare to 'arm span' between males and females?}
 \label{sec:rq2}
+Test
+
+\begin{figure}[!ht]
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{figures/sq1.png} }
+	    \caption{Plots and correlation values for males and females regarding height and arm span.}
+	\end{center}
+	\label{fig:sq1}
+\end{figure}
 
 \subsection{How does 'foot length' compare to the length of 'elbow to armpit' between males and females?}
 \label{sec:rq3}
 
+
 \subsection{How many average 'head height' lengths are males and females relative to their respective, average 'height'?}
 \label{sec:rq4}
+
 
 \section{Data Description}
 \label{sec:data}
@@ -67,7 +80,7 @@ As mentioned in the introduction, the data set utilized throughout this research
 
 \vspace{0.25cm}
 
-These observations were recorded in early September 2020 and compiled by the instructor for our use in late October 2020. Given that these observations were recorded amid the COVID-19 pandemic, each student was required to make a simple, yet descriptive handout that would detail how one would go about recording their own body measurements and the necessary values to take note of. This would be an ideal situation of how observations were recorded and sent electronically by each respondent, but observations could also be taken in person given that the surveyor and respondent were comfortable being in close proximity of each other. An example of a two-page handout created by Kevin Black, as well as further information regarding this data set, can be found in Appendix \ref{sec:appendix-data-handout} and Appendix \ref{sec:appendix-dataset-ex}, respectively.
+These observations were recorded in early September 2020 and compiled by the instructor for our use in late October 2020. Given that these observations were recorded amid the COVID-19 pandemic, each student was required to make a simple, yet descriptive handout that would detail how one would go about recording their own body measurements and the necessary values to take note of. This would be an ideal situation of how observations were recorded and sent electronically by each respondent, but observations could also be taken in person given that the surveyor and respondent were comfortable being in close proximity of each other. An example of a two-page handout created by Kevin Black, as well as further information regarding the attributes of this data set, can be found in Appendix \ref{sec:appendix-data-handout} and Appendix \ref{sec:appendix-dataset-ex}, respectively.
 
 \vspace{0.25cm}
 
@@ -75,13 +88,6 @@ On the surface, the purpose for writing this research paper and collecting the n
 
 \section{Key Findings}
 \label{sec:findings}
-
-\section{Conclusion}
-\label{sec:conclusion}
-
-\newpage
-
-\input{tables/example-correlation-table} 
 
 \newpage
 
@@ -93,6 +99,20 @@ On the surface, the purpose for writing this research paper and collecting the n
 
 \subsubsection{Utilization of Data Provenance}
 \label{sec:appendix-provenance-explained}
+
+While it could be seen as an application mainly used in large-scale data analytics projects, the multitude of steps to practice data provenance was also used to handle the vulnerable data used in this research. Auxiliary files such as the R project files can be found on the \href{https://github.com/KevnBlack/WSU_STATS419_FALL2020/tree/master/PROJECT-01}{project repository} through GitHub, while the specific functions used in this report can be found in the `functions-project-measure.R` \href{https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/master/functions/functions-project-measure.R}{file} or in section \ref{sec:appendix-setup}. The data set itself was not saved to any location online due to privacy concerns, but it was organized and saved onto a local hard drive for immediate use. 
+
+\vspace{0.25cm}
+
+The collection and general organization process for the data set is thoroughly described in sections \ref{sec:data} and \ref{sec:appendix-dataset-ex}. Cleaning for the actual substance of the data set was performed through the use of the `prepareMeasureData()` function, where the data set was manipulated to more better fit the aims of addressing the particular research questions for this report. Cleaning this data set involved multiple steps, such as: omitting rows containing NA values based solely on the body measurement columns, setting a consistent naming convention for gender and units, converting all body measurement values to inches, and scaling the body measurement data. Keeping the research questions in mind and despite the cleaning of all columns, the only body measurement fields utilized were $height$, $arm.span$, $foot.length$, $elbow.armpit$, and $head.height$.
+
+\vspace{0.25cm}
+
+Prior to `prepareMeasureData()`, the data is imported via the `read.file()` function where it checks to see if a cleaned version of the data set already exists, to which that particular file would take precedence and be used. If no clean version currently exists, the function goes through the cleaning process and saves the cleaned data set to the same directory as original data set. For unbiased samples of the data frame, a seed was set for reproducibility and 200 random observations were drawn without replacement.
+
+\vspace{0.25cm}
+
+The documented R code can be found in section \ref{sec:appendix-setup}. Key findings and visualizations of summary statistics were discussed previously throughout sections \ref{sec:rq} through \ref{sec:findings}. Based on the points made in this section, its clear that data provenance was kept in mind for making sure there was a traceable history in the usage of this data set, whether to resolve potential issues or to cut down on access times.
 
 \newpage
 
@@ -140,8 +160,59 @@ In addition to how the data set was described in Section \ref{sec:data}, explana
 \subsection{R Code Used for Research}
 \label{sec:appendix-setup}
 
-Below is the necessary functions and libraries required to run the code referenced in this document.
+Below are the necessary functions required to produce the figures and findings referenced in this report.
+```{r,message=FALSE}
+prepareMeasureData = function(measure){
+  # Cleaning: omit NA rows based measured values, not on $side
+  measure = measure[complete.cases(measure[,4:26]),]
+  
+  # Cleaning: consistent naming convention
+  measure$gender = factor(tolower(measure$gender))
+  measure$gender[measure$gender=="f"] = "female"
+  measure$gender[measure$gender=="m"] = "male"
+  measure$units = factor(tolower(measure$units))
+  measure$units[measure$units=="inches"] = "in"
+  measure$units[measure$units=="inch"] = "in"
+  measure$units[measure$units=="\"in\""] = "in"
+  measure$units[measure$units=="cm"] = "in"
+  
+  # Converting cm to inches
+  for(row in 1:nrow(measure)){
+    if(measure[row,]$units=="cm"){
+      measure[row,4:26] <- measure[row,4:26]/2.54
+    }
+  }
+  
+  # Scale data
+  measure[,4:26] <- scale(measure[,4:26])
+  
+  return(measure)
+}
 
+read.file = function(path){
+  tryCatch(
+    expr = {
+      # Open cleaned file if already available
+      measure = utils::read.csv(paste0(path.to.secret,"measure-clean.txt"),
+                                header = TRUE, quote = "", sep = "|")
+      return(measure)
+    },
+    warning = function(w){
+      # If no clean file, open original file
+      measure = utils::read.csv(paste0(path.to.secret,"measure-students.txt"),
+                                header = TRUE, quote = "", sep = "|")
+      # Clean data
+      measure = prepareMeasureData(measure)
+      
+      # Save cleaned data for later
+      write.table(measure,paste0(path.to.secret,"measure-clean.txt"),sep="|",quote=FALSE)
+      return(measure)
+    }
+  )    
+}
+```
+
+Below are the libraries and R code used to source functions, import measurement data, and perform analysis on said data.
 ```{r,fig.show="hide",message=FALSE}
 # Import necessary libraries
 library(stats) # For cor()
@@ -150,27 +221,37 @@ library(devtools) # For source_url()
 # Source cleaning function
 path.hub = "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"
 source_url(paste0(path.hub,"master/functions/functions-project-measure.R"))
-
-# Import data
 path.to.secret = "D:/School/Fall 2020/STAT 419/datasets/"
-measure.df = read.file(path.to.secret)
+measure.df = read.file(path.to.secret) # Import data
+set.seed(1) # Sample 200 observations from data frame
+measure.sample = measure.df[sample(nrow(measure.df),200),]
 
 # Isolate male and female data
-measure.df.m = measure.df[measure.df$gender == "male",]
-measure.df.f = measure.df[measure.df$gender == "female",]
+measure.df.m = measure.sample[measure.sample$gender == "male",]
+measure.df.f = measure.sample[measure.sample$gender == "female",]
 cor.m = cor(measure.df.m$height.NA, measure.df.m$arm.span.NA)
 cor.f = cor(measure.df.f$height.NA, measure.df.f$arm.span.NA)
 
-# Correlation Graphs
+# Sub-question 1
+## Trend lines for plots
+lm.m = lm(measure.df.m$height.NA ~ measure.df.m$arm.span.NA)
+lm.f = lm(measure.df.f$height.NA ~ measure.df.f$arm.span.NA)
+
+## Correlation Graphs
 par(mfrow = c(1,2))
 plot(measure.df.m$height.NA, measure.df.m$arm.span.NA,
-     main = paste("Correlation =", round(cor.m,5)),
+     main = paste("Correlation =", round(cor.m,5)), pch = 4,
      xlab = "Male Height (in)", ylab = "Male Arm Span (in)", col = "blue")
+abline(lm.m)
 
 plot(measure.df.f$height.NA, measure.df.f$arm.span.NA,
-     main = paste("Correlation =", round(cor.f,5)),
+     main = paste("Correlation =", round(cor.f,5)), pch = 0,
      xlab = "Female Height (in)", ylab = "Female Arm Span (in)", col = "red")
+abline(lm.f)
 
+# Sub-question 2
+
+# Sub-question 3
 ```
 
 

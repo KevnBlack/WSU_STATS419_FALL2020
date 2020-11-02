@@ -260,6 +260,7 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage{hyperref}
 
 % move the hyperref stuff down here, after header-includes, to allow for - \usepackage{hyperref}
 
@@ -424,8 +425,33 @@ code can be found below.
 \section{How does being male or female influence the ratios between certain body parts?}
 \label{sec:rq}
 
+Making particular deductions throughout history regarding body
+measurements among males and females is more than likely due to the
+distinct patterns one can find when comparing the biological sexes.
+Those born as males or females have about as many differing features to
+one another than their similar features, both internally and externally.
+Internally speaking, men typically have deeper voices, a faster
+metabolism, and can easily build muscle mass, whereas women possess a
+much more complicated reproductive system, have the ability to
+breastfeed, and live longer on average \citep{Wolchover:2011}. What
+about externally? How does being male or female influence the ratios
+between certain body parts? The latter primary question will be
+elaborated through the following sub-questions, focusing on particular
+ratios that are likely to yield some insight on the different external
+measurements between males and females.
+
 \subsection{How does 'height' compare to 'arm span' between males and females?}
 \label{sec:rq2}
+
+Test
+
+\begin{figure}[!ht]
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{figures/sq1.png} }
+        \caption{Plots and correlation values for males and females regarding height and arm span.}
+    \end{center}
+    \label{fig:sq1}
+\end{figure}
 
 \subsection{How does 'foot length' compare to the length of 'elbow to armpit' between males and females?}
 \label{sec:rq3}
@@ -461,8 +487,8 @@ how observations were recorded and sent electronically by each
 respondent, but observations could also be taken in person given that
 the surveyor and respondent were comfortable being in close proximity of
 each other. An example of a two-page handout created by Kevin Black, as
-well as further information regarding this data set, can be found in
-Appendix \ref{sec:appendix-data-handout} and Appendix
+well as further information regarding the attributes of this data set,
+can be found in Appendix \ref{sec:appendix-data-handout} and Appendix
 \ref{sec:appendix-dataset-ex}, respectively.
 
 \vspace{0.25cm}
@@ -482,13 +508,6 @@ a good starting point for garnering crucial experience.
 \section{Key Findings}
 \label{sec:findings}
 
-\section{Conclusion}
-\label{sec:conclusion}
-
-\newpage
-
-\input{tables/example-correlation-table}
-
 \newpage
 
 \section{APPENDICES}
@@ -499,6 +518,56 @@ a good starting point for garnering crucial experience.
 
 \subsubsection{Utilization of Data Provenance}
 \label{sec:appendix-provenance-explained}
+
+While it could be seen as an application mainly used in large-scale data
+analytics projects, the multitude of steps to practice data provenance
+was also used to handle the vulnerable data used in this research.
+Auxiliary files such as the R project files can be found on the
+\href{https://github.com/KevnBlack/WSU_STATS419_FALL2020/tree/master/PROJECT-01}{project repository}
+through GitHub, while the specific functions used in this report can be
+found in the \texttt{functions-project-measure.R}
+\href{https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/master/functions/functions-project-measure.R}{file}
+or in section \ref{sec:appendix-setup}. The data set itself was not
+saved to any location online due to privacy concerns, but it was
+organized and saved onto a local hard drive for immediate use.
+
+\vspace{0.25cm}
+
+The collection and general organization process for the data set is
+thoroughly described in sections \ref{sec:data} and
+\ref{sec:appendix-dataset-ex}. Cleaning for the actual substance of the
+data set was performed through the use of the
+\texttt{prepareMeasureData()} function, where the data set was
+manipulated to more better fit the aims of addressing the particular
+research questions for this report. Cleaning this data set involved
+multiple steps, such as: omitting rows containing NA values based solely
+on the body measurement columns, setting a consistent naming convention
+for gender and units, converting all body measurement values to inches,
+and scaling the body measurement data. Keeping the research questions in
+mind and despite the cleaning of all columns, the only body measurement
+fields utilized were \(height\), \(arm.span\), \(foot.length\),
+\(elbow.armpit\), and \(head.height\).
+
+\vspace{0.25cm}
+
+Prior to \texttt{prepareMeasureData()}, the data is imported via the
+\texttt{read.file()} function where it checks to see if a cleaned
+version of the data set already exists, to which that particular file
+would take precedence and be used. If no clean version currently exists,
+the function goes through the cleaning process and saves the cleaned
+data set to the same directory as original data set. For unbiased
+samples of the data frame, a seed was set for reproducibility and 200
+random observations were drawn without replacement.
+
+\vspace{0.25cm}
+
+The documented R code can be found in section \ref{sec:appendix-setup}.
+Key findings and visualizations of summary statistics were discussed
+previously throughout sections \ref{sec:rq} through \ref{sec:findings}.
+Based on the points made in this section, its clear that data provenance
+was kept in mind for making sure there was a traceable history in the
+usage of this data set, whether to resolve potential issues or to cut
+down on access times.
 
 \newpage
 
@@ -561,8 +630,64 @@ measurement columns.
 \subsection{R Code Used for Research}
 \label{sec:appendix-setup}
 
-Below is the necessary functions and libraries required to run the code
-referenced in this document.
+Below are the necessary functions required to produce the figures and
+findings referenced in this report.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prepareMeasureData =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(measure)\{}
+  \CommentTok{# Cleaning: omit NA rows based measured values, not on $side}
+\NormalTok{  measure =}\StringTok{ }\NormalTok{measure[}\KeywordTok{complete.cases}\NormalTok{(measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{]),]}
+  
+  \CommentTok{# Cleaning: consistent naming convention}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{gender =}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{tolower}\NormalTok{(measure}\OperatorTok{$}\NormalTok{gender))}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{gender[measure}\OperatorTok{$}\NormalTok{gender}\OperatorTok{==}\StringTok{"f"}\NormalTok{] =}\StringTok{ "female"}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{gender[measure}\OperatorTok{$}\NormalTok{gender}\OperatorTok{==}\StringTok{"m"}\NormalTok{] =}\StringTok{ "male"}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{units =}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{tolower}\NormalTok{(measure}\OperatorTok{$}\NormalTok{units))}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{units[measure}\OperatorTok{$}\NormalTok{units}\OperatorTok{==}\StringTok{"inches"}\NormalTok{] =}\StringTok{ "in"}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{units[measure}\OperatorTok{$}\NormalTok{units}\OperatorTok{==}\StringTok{"inch"}\NormalTok{] =}\StringTok{ "in"}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{units[measure}\OperatorTok{$}\NormalTok{units}\OperatorTok{==}\StringTok{"}\CharTok{\textbackslash{}"}\StringTok{in}\CharTok{\textbackslash{}"}\StringTok{"}\NormalTok{] =}\StringTok{ "in"}
+\NormalTok{  measure}\OperatorTok{$}\NormalTok{units[measure}\OperatorTok{$}\NormalTok{units}\OperatorTok{==}\StringTok{"cm"}\NormalTok{] =}\StringTok{ "in"}
+  
+  \CommentTok{# Converting cm to inches}
+  \ControlFlowTok{for}\NormalTok{(row }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(measure))\{}
+    \ControlFlowTok{if}\NormalTok{(measure[row,]}\OperatorTok{$}\NormalTok{units}\OperatorTok{==}\StringTok{"cm"}\NormalTok{)\{}
+\NormalTok{      measure[row,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{] <-}\StringTok{ }\NormalTok{measure[row,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{]}\OperatorTok{/}\FloatTok{2.54}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+  \CommentTok{# Scale data}
+\NormalTok{  measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{] <-}\StringTok{ }\KeywordTok{scale}\NormalTok{(measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{])}
+  
+  \KeywordTok{return}\NormalTok{(measure)}
+\NormalTok{\}}
+
+\NormalTok{read.file =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path)\{}
+  \KeywordTok{tryCatch}\NormalTok{(}
+    \DataTypeTok{expr =}\NormalTok{ \{}
+      \CommentTok{# Open cleaned file if already available}
+\NormalTok{      measure =}\StringTok{ }\NormalTok{utils}\OperatorTok{::}\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.to.secret,}\StringTok{"measure-clean.txt"}\NormalTok{),}
+                                \DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{quote =} \StringTok{""}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"|"}\NormalTok{)}
+      \KeywordTok{return}\NormalTok{(measure)}
+\NormalTok{    \},}
+    \DataTypeTok{warning =} \ControlFlowTok{function}\NormalTok{(w)\{}
+      \CommentTok{# If no clean file, open original file}
+\NormalTok{      measure =}\StringTok{ }\NormalTok{utils}\OperatorTok{::}\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.to.secret,}\StringTok{"measure-students.txt"}\NormalTok{),}
+                                \DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{quote =} \StringTok{""}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"|"}\NormalTok{)}
+      \CommentTok{# Clean data}
+\NormalTok{      measure =}\StringTok{ }\KeywordTok{prepareMeasureData}\NormalTok{(measure)}
+      
+      \CommentTok{# Save cleaned data for later}
+      \KeywordTok{write.table}\NormalTok{(measure,}\KeywordTok{paste0}\NormalTok{(path.to.secret,}\StringTok{"measure-clean.txt"}\NormalTok{),}\DataTypeTok{sep=}\StringTok{"|"}\NormalTok{,}\DataTypeTok{quote=}\OtherTok{FALSE}\NormalTok{)}
+      \KeywordTok{return}\NormalTok{(measure)}
+\NormalTok{    \}}
+\NormalTok{  )    }
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Below are the libraries and R code used to source functions, import
+measurement data, and perform analysis on said data.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -573,29 +698,41 @@ referenced in this document.
 \CommentTok{# Source cleaning function}
 \NormalTok{path.hub =}\StringTok{ "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"}
 \KeywordTok{source_url}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.hub,}\StringTok{"master/functions/functions-project-measure.R"}\NormalTok{))}
-
-\CommentTok{# Import data}
 \NormalTok{path.to.secret =}\StringTok{ "D:/School/Fall 2020/STAT 419/datasets/"}
-\NormalTok{measure =}\StringTok{ }\NormalTok{utils}\OperatorTok{::}\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.to.secret,}\StringTok{"measure-students.txt"}\NormalTok{), }
-                           \DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{quote =} \StringTok{""}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"|"}\NormalTok{)}
-\CommentTok{# Clean data}
-\NormalTok{measure.df =}\StringTok{ }\KeywordTok{prepareMeasureData}\NormalTok{(measure)}
+\NormalTok{measure.df =}\StringTok{ }\KeywordTok{read.file}\NormalTok{(path.to.secret) }\CommentTok{# Import data}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{) }\CommentTok{# Sample 200 observations from data frame}
+\NormalTok{measure.sample =}\StringTok{ }\NormalTok{measure.df[}\KeywordTok{sample}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(measure.df),}\DecValTok{200}\NormalTok{),]}
 
 \CommentTok{# Isolate male and female data}
-\NormalTok{measure.df.m =}\StringTok{ }\NormalTok{measure.df[measure.df}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "male"}\NormalTok{,]}
-\NormalTok{measure.df.f =}\StringTok{ }\NormalTok{measure.df[measure.df}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "female"}\NormalTok{,]}
+\NormalTok{measure.df.m =}\StringTok{ }\NormalTok{measure.sample[measure.sample}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "male"}\NormalTok{,]}
+\NormalTok{measure.df.f =}\StringTok{ }\NormalTok{measure.sample[measure.sample}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "female"}\NormalTok{,]}
 \NormalTok{cor.m =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
 \NormalTok{cor.f =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
 
-\CommentTok{# Correlation Graphs}
+\CommentTok{# Sub-question 1}
+\CommentTok{## Trend lines for plots}
+\NormalTok{lm.m =}\StringTok{ }\KeywordTok{lm}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA }\OperatorTok{~}\StringTok{ }\NormalTok{measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
+\NormalTok{lm.f =}\StringTok{ }\KeywordTok{lm}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA }\OperatorTok{~}\StringTok{ }\NormalTok{measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
+
+\CommentTok{## Correlation Graphs}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
 \KeywordTok{plot}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA,}
-     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.m,}\DecValTok{5}\NormalTok{)),}
+     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.m,}\DecValTok{5}\NormalTok{)), }\DataTypeTok{pch =} \DecValTok{4}\NormalTok{,}
      \DataTypeTok{xlab =} \StringTok{"Male Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Male Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(lm.m)}
 
 \KeywordTok{plot}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA,}
-     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.f,}\DecValTok{5}\NormalTok{)),}
+     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.f,}\DecValTok{5}\NormalTok{)), }\DataTypeTok{pch =} \DecValTok{0}\NormalTok{,}
      \DataTypeTok{xlab =} \StringTok{"Female Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Female Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(lm.f)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Sub-question 2}
+
+\CommentTok{# Sub-question 3}
 \end{Highlighting}
 \end{Shaded}
 
