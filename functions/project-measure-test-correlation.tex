@@ -100,12 +100,17 @@
 
 
 
-\title{\textbf{\textcolor{WSU.crimson}{A boring (academic) title or a clever title?}} \newline \textbf{\textcolor{WSU.gray}{A secondary title}}  }
+\title{\textbf{\textcolor{WSU.crimson}{A boring (academic) title or a
+clever title?}} \newline \textbf{\textcolor{WSU.gray}{A secondary
+title}}  }
+ 
 
 %  
 
 % \author{ \Large true \hfill \normalsize \emph{} }
-\author{\Large YOUR NAME HERE\vspace{0.05in} \newline\normalsize\emph{Washington State University}  }
+\author{\Large YOUR NAME
+HERE\vspace{0.05in} \newline\normalsize\emph{Washington State
+University}  }
 
 
 \date{November 04, 2020}
@@ -282,9 +287,11 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={YOUR NAME HERE (Washington State University)},
-             pdfkeywords = {multiple comparisons to control; multivariate chi-square distribution;
-nonlinear growth curves; Richard's curve; simulated critical points},  
-            pdftitle={A boring (academic) title or a clever title?: A secondary title},
+             pdfkeywords = {multiple comparisons to control;
+multivariate chi-square distribution; nonlinear growth curves; Richard's
+curve; simulated critical points},  
+            pdftitle={A boring (academic) title or a clever title?: A
+secondary title},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -309,7 +316,8 @@ nonlinear growth curves; Richard's curve; simulated critical points},
 
 
 \pagestyle{fancy}   
-\lhead{\textcolor{WSU.crimson}{\textbf{ A boring (academic) title or a clever title? }}}
+\lhead{\textcolor{WSU.crimson}{\textbf{ A boring (academic) title or a
+clever title? }}}
 \chead{}
 \rhead{\textcolor{WSU.gray}{\textbf{  Page\ \thepage\ of\ \protect\pageref{LastPage} }}}
 \lfoot{}
@@ -320,7 +328,8 @@ nonlinear growth curves; Richard's curve; simulated critical points},
 \begin{document}
 	
 % \pagenumbering{arabic}% resets `page` counter to 1 
-%
+%    
+
 % \maketitle
 
 {% \usefont{T1}{pnc}{m}{n}
@@ -334,7 +343,8 @@ nonlinear growth curves; Richard's curve; simulated critical points},
 {
    \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
    
-\textbf{\authorfont YOUR NAME HERE} \hskip 15pt \emph{\small Washington State University}   
+\textbf{\authorfont YOUR NAME HERE} \hskip 15pt \emph{\small Washington
+State University}   
 
 }
 
@@ -353,10 +363,10 @@ nonlinear growth curves; Richard's curve; simulated critical points},
 
     \vskip 8.5pt % \small 
 
-\noindent In this article we compare the \emph{empirical characteristic function}
-\citep{Tukey:1977, Becker:1988} to a
-\emph{moment-generating-functional form} to compute the proportion of
-hypotheses \(m\) that are rejected under the null hypothesis.
+\noindent In this article we compare the
+\emph{empirical characteristic function} \citep{Tukey:1977, Becker:1988}
+to a \emph{moment-generating-functional form} to compute the proportion
+of hypotheses \(m\) that are rejected under the null hypothesis.
 \vspace{0.25in}
 
 \noindent Here is a second paragraph of the abstract (if necessary), and
@@ -369,8 +379,9 @@ You can include references such as this one to the Appendices section
 \ref{sec:appendix} if necessary.
 
 
-\vskip 8.5pt \noindent \textbf{\underline{Keywords}:} multiple comparisons to control; multivariate chi-square distribution;
-nonlinear growth curves; Richard's curve; simulated critical points \par
+\vskip 8.5pt \noindent \textbf{\underline{Keywords}:} multiple
+comparisons to control; multivariate chi-square distribution; nonlinear
+growth curves; Richard's curve; simulated critical points \par
 
     
 
@@ -394,197 +405,80 @@ nonlinear growth curves; Richard's curve; simulated critical points \par
 
 \noindent  
 
-\section{Introduction}
-\label{sec:intro}
-
-Write something here.
-
-{[}ONE GRAPHIC{]}
-
-{[}TWO GRAPHICS AS ONE{]}
-
-Write something here.
-
-\section{Research Question:  What is my primary question}
-\label{sec:rq}
-
-\subsection{What is my secondary question}
-\label{sec:rq2}
-
-\subsection{What is my other secondary question}
-\label{sec:rq3}
-
-\section{Data Description}
-\label{sec:data}
-
-Very brief introduction to the data, how it was collected, and so on.
-Remember that everything is covered (who, what, when, where, why, how,
-so what, and so on). Reference the section in the Appendix with greater
-detail about the data provenance. This section should be about two
-paragraphs, and the Appendix should have more information.
-
-\subsection{Summary of Sample}
-\label{sec:data-sample}
-
-\subsection{Summary Statistics of Data}
-\label{sec:data-summary}
-
-\section{Key Findings}
-\label{sec:findings}
-
-\section{Conclusion}
-\label{sec:conclusion}
-
-\newpage
-
-This was a new page
-
-This is a newline. \newline  Here is some more text.
-
-Below are some example code that may benefit you in preparing your
-document. \newline
-
-\vspace{0.25in}
-
-\noindent Please state your name: \hrulefill \newline I was born on
-\hrulefill in \hrulefill \vspace{0.25in}
-
-\begin{equation}
-\label{eq:my-model}
-    Y_{jt} = \alpha + \bm{\beta}X_{jt} + \upsilon_{j}  + \varepsilon_{jt} ,
-\end{equation}
-
-\noindent where \(\alpha\) is the grand mean, \(\upsilon_{j}\) is the
-fixed-time country mean, \(X_{jt}\) (country \(j\) at time \(t\)) is the
-matrix of country-level observations for the vector of aforementioned
-parameters \(\bm{\beta}\), and \(\varepsilon_{jt}\) represents the
-residual idiosyncratic disturbance. Our panel data set consists of
-repeated observations of countries over time. Therefore, we employ
-cross-section time-series models. This approach redefines
-Equation\textasciitilde{}\ref{eq:my-model} by subtracting time-demeaned
-values. This \emph{within} transformation subtracts constant country
-effects for the dependent variable \(\bar{Y_{j}}\), the predictor
-variables \(\bar{X_{j}}\), and the intercept \(\bar{\upsilon_{j}}\):
-
-\begin{equation}
-\label{eq:my-random}
-    (Y_{jt} - \theta \bar{Y_{j}}) = (1-\theta)\alpha + \bm{\beta}(X_{jt} - \bar{X_{j}}) +  (\upsilon_{jt} - \theta \bar{\upsilon_{j}})  ,
-\end{equation}
-
-\noindent If \(\theta = 0\), the model reduces to a basic pooled
-ordinary-least-squares (OLS) model; if \(\theta = 1\), the model reduces
-to a fixed-effects model; otherwise the model represents a
-random-effects model. The pooled OLS estimation is biased if country
-effects exist \citep{Hsiao:2003}. The random-effects model may be
-susceptible to omitted-variable bias \citep{Wooldridge:2006}: bias
-because a predictor was excluded from the model specification.
-Conversely, the fixed-effects model is not susceptible to this bias as
-it captures unobserved intracountry variation around its average
-country-level ``fixed effect." Panel-data analysis commonly has issues
-with heteroskedasticity, serial autocorrelation, and cross-sectional
-autocorrelation.
-
-\vspace{0.5in}
-
-\(i=1\) and \[i = 1\]
-
-\vspace{0.5in}
-
-\begin{tabular}{ c c c c c}
-  1 & 2 & 3 & 4 & 5 \\
-  \hline
-  6 & 7 & 8 & 9 & 10
-\end{tabular}
-
-\vspace{0.5in}
-
-See Figure \ref{fig:conceptual-model}.
-
-\newpage
-
-This is a
-footnote\footnote{This is a footnote that can be really long.  \newline You can have multiple paragraphs in the footnote.  You can have \underline{underline} or \textbf{bold} or \emph{italics}.  You can even have a math equation inline. \newline In this section, we review the regression results to summarize our findings.  First, we examine each model for significance, and conclude the hypothesized models fit well with the data.  Second, we conclude that the fixed country effects represent consistent and unbiased parameter estimates.  Third, with the use of the \citet{Driscoll:1998} robust standard errors, we adjust any variance bias to ascertain the significance of these consistent estimates.  Therefore, we are able to make inferences about the hypotheses using our model estimates.  For ease of interpretation across these 12 models, we introduce $\betaSH{{ \ \ }M1}{Total}{1}$ as notation to refer to parameter estimate $\hat{\beta}_{1}$ (HDI) for the Total Sample and (M1) Model 1:  Main Effects.  We proceed by reporting findings for the total sample. \newline The footnotes are automatically converted to "endnotes" and will be included at the end of the document.  It will finish when you have that outer brace like this.}
-that can be placed within a document.
-
-\vspace{1.5in}
-
-Refer to the Appendices in section\textasciitilde{}\ref{sec:appendix}
-where I am going to cite John \citep[pp. 2-3]{Tukey:1962}.
-
-Here is a quote by \citet[pp. 2-3]{Tukey:1962}:
-
-\begin{quote}
-For a long time I have thought I was a statistician, interested in inferences from the particular to the general.  But as I have watched mathematical statistics evolve, I have had to cause to wonder and to doubt. [...] All in all, I have come to feel that my central interest is in \emph{data analysis}, which I take to include among other things: procedures for analyzing data, techniques for interpreting the results of such procedures, ways of planning the gathering of data to make its analysis easier, more precise or more accurate, and all the machinery and results of (mathematical) statistics which apply to analyzing the data.
-
-Large parts of data analysis are inferential in the sample-to-population sense, but these are only parts, not the whole.  Large parts of data analysis are incisive, laying bare indications which we could not perceive by simple and direct examination of the raw data, but these too are only parts, not the whole.  Some parts of data analysis, as the term is her stretch beyond its philology, are allocation, in the sense that they guide us in the distribution of effort and other valuable considerations in observation, experimentation, or analysis.  Data analysis is a larger and more varied field than inference, or incisive procedures, or allocation.
-
-Statistics has contributed much to data analysis.  In the future it can, and in my view should, contribute more.  For such contributions to exist, and be valuable, it is not necessary that they be direct.  They need not provide new techniques, or better tables for old techniques, in order to influence the practice of data analysis.
-\end{quote}
-
-\newpage
-
-\input{tables/example-correlation-table}
-
-\newpage
-
-\newpage
-\section{APPENDICES}
-\label{sec:appendix}
-
-\subsection{Data Provenance}
-\label{sec:appendix-data-provenance}
-
-\newpage
-\subsubsection{Data Collection Handout}
-\label{sec:appendix-data-handout}
-
-\newpage
-
-\subsection{Preparing the Report Workspace as a subsection}
-\label{sec:appendix-setup}
-
-\subsubsection{Preparing the Report Workspace as a subsubsection}
-\label{sec:appendix-setup2}
-
-\paragraph{Preparing the Report Workspace as a paragraph}
-\label{sec:appendix-setup3}
-
-\subparagraph{Preparing the Report Workspace as a subparagrah}
-\label{sec:appendix-setup4}
-
-Below is the necessary functions and libraries required to run the code
-referenced in this document.
-
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# library(devtools);       # required for source_url}
-\CommentTok{# }
-\CommentTok{# path.humanVerseWSU = "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/"}
-\CommentTok{# source_url( paste0(path.humanVerseWSU,"master/misc/functions-project-measure.R") );}
+\KeywordTok{library}\NormalTok{(devtools);       }\CommentTok{\# required for source\_url}
+\KeywordTok{library}\NormalTok{(Hmisc)}
+\KeywordTok{library}\NormalTok{(humanVerseWSU)}
+
+\NormalTok{path.humanVerseWSU =}\StringTok{ "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/"}
+\KeywordTok{source\_url}\NormalTok{( }\KeywordTok{paste0}\NormalTok{(path.humanVerseWSU,}\StringTok{"master/misc/functions{-}project{-}measure.R"}\NormalTok{) );}
+
+\NormalTok{path.project =}\StringTok{ "D:/School/Fall 2020/STAT 419/git/WSU\_STATS419\_FALL2020/PROJECT{-}01/"}\NormalTok{;}
+\NormalTok{path.tables =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(path.project,}\StringTok{"tables/"}\NormalTok{);}
+  \KeywordTok{createDirRecursive}\NormalTok{(path.tables);}
 \end{Highlighting}
 \end{Shaded}
 
-Below is the code to load the data and prepare it for analysis.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{file.correlation =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(path.tables,}\StringTok{"tree{-}correlation{-}table.tex"}\NormalTok{);}
+
+
+\NormalTok{myData =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(trees);  }\CommentTok{\# numeric values only, only what will appear in table}
+
+\CommentTok{\# https://www.overleaf.com/read/srzhrcryjpwn}
+\CommentTok{\# keepaspectratio of include graphics }
+\CommentTok{\# could scale \textbackslash{}input if still too big ...}
+\CommentTok{\# https://tex.stackexchange.com/questions/13460/scalebox{-}knowing{-}how{-}much{-}it{-}scales\#13487}
+\KeywordTok{buildLatexCorrelationTable}\NormalTok{(myData, }
+  \DataTypeTok{rotateTable =} \OtherTok{TRUE}\NormalTok{,}
+  \DataTypeTok{width.table =} \FloatTok{0.60}\NormalTok{, }\CommentTok{\# best for given data ... 0.95 when rotateTable = FALSE}
+                      \CommentTok{\# 0.60 when rotateTable = TRUE}
+  \DataTypeTok{myFile =}\NormalTok{ file.correlation,}
+  \DataTypeTok{myNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"Diameter (in)"}\NormalTok{, }\StringTok{"Height (ft)"}\NormalTok{, }\StringTok{"Volume (ft$\^{}3$)"}\NormalTok{) );}
+
+
+\KeywordTok{Sys.sleep}\NormalTok{(}\DecValTok{2}\NormalTok{); }\CommentTok{\# in case Knit{-}PDF doesn\textquotesingle{}t like that I just created the file...}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\input{tables/tree-correlation-table}
+
+\newpage
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# path.project = "C:/_git_/WSU_STATS419_FALL2020/project-measure/";}
-\CommentTok{# }
-\CommentTok{# path.to.secret = "C:/Users/Alexander Nevsky/Dropbox/WSU-419/Fall 2020/__student_access__/_SECRET_/";}
-\CommentTok{# }
-\CommentTok{# measure = utils::read.csv( paste0(path.to.secret, "measure-students.txt"), header=TRUE, quote="", sep="|");}
+\CommentTok{\# build a second table, with more data ... }
 
-\CommentTok{#path.github = "https://raw.githubusercontent.com/this-IS-YOUR-PATH-TO-GITHUB/";}
-\CommentTok{#source_url( paste0(path.github,"master/functions/functions-project-measure.R") );}
+\NormalTok{file.correlation =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(path.tables,}\StringTok{"tree{-}correlation{-}table2.tex"}\NormalTok{);}
 
-\CommentTok{# this is your function}
-\CommentTok{# put in the same "units"}
-\CommentTok{# merge left/right}
-\CommentTok{# build proportion data}
-\CommentTok{# and so on ... }
-\CommentTok{# measure.df = prepareMeasureData(measure);}
+
+\NormalTok{myData =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(trees);  }\CommentTok{\# numeric values only, only what will appear in table}
+
+\NormalTok{myData =}\StringTok{ }\KeywordTok{cbind}\NormalTok{(myData,myData);}
+\CommentTok{\# https://www.overleaf.com/read/srzhrcryjpwn}
+\CommentTok{\# keepaspectratio of include graphics }
+\CommentTok{\# could scale \textbackslash{}input if still too big ...}
+\CommentTok{\# https://tex.stackexchange.com/questions/13460/scalebox{-}knowing{-}how{-}much{-}it{-}scales\#13487}
+\KeywordTok{buildLatexCorrelationTable}\NormalTok{(myData, }
+  \DataTypeTok{rotateTable =} \OtherTok{TRUE}\NormalTok{,}
+  \DataTypeTok{width.table =} \FloatTok{0.95}\NormalTok{,}
+  \DataTypeTok{myFile =}\NormalTok{ file.correlation,}
+  \DataTypeTok{myNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"Diameter (in)"}\NormalTok{, }\StringTok{"Height (ft)"}\NormalTok{, }\StringTok{"Volume (ft$\^{}3$)"}\NormalTok{, }\StringTok{"Diameter (in)"}\NormalTok{, }\StringTok{"Height (ft)"}\NormalTok{, }\StringTok{"Volume (ft$\^{}3$)"}\NormalTok{) );}
+
+
+\KeywordTok{Sys.sleep}\NormalTok{(}\DecValTok{2}\NormalTok{) }\CommentTok{\# in case Knit{-}PDF doesn\textquotesingle{}t like that I just created the file...}
 \end{Highlighting}
 \end{Shaded}
+
+\newpage
+
+\input{tables/tree-correlation-table2}
+
+\newpage
 
 
 

@@ -242,6 +242,8 @@ read.file = function(path,scale){
 # Import necessary libraries
 library(stats) # For cor()
 library(devtools) # For source_url()
+library(humanVerseWSU)
+library(Hmisc)
 
 # Source cleaning function
 path.hub = "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"
@@ -306,9 +308,18 @@ mean(measure.df.f$height.NA)/mean(measure.df.f$head.height.NA)
 \newpage
 
 ```{r,test-correlation,message=FALSE}
-path.tables = "D:/School/Fall 2020/STAT 419/git/WSU_STATS419_FALL2020/PROJECT-01/tables/"
-file.correlation = paste0(path.tables,"table-correlation.tex");
+library(devtools);       # required for source_url
+library(Hmisc)
+library(humanVerseWSU)
 
+path.humanVerseWSU = "https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/"
+source_url( paste0(path.humanVerseWSU,"master/misc/functions-project-measure.R") );
+
+path.project = "D:/School/Fall 2020/STAT 419/git/WSU_STATS419_FALL2020/PROJECT-01/";
+path.tables = paste0(path.project,"tables/");
+  createDirRecursive(path.tables);
+
+file.correlation = paste0(path.tables,"tree-correlation-table.tex");
 
 myData = as.matrix(trees);  # numeric values only, only what will appear in table
 
@@ -324,9 +335,13 @@ buildLatexCorrelationTable(myData,
   myNames = c("Diameter (in)", "Height (ft)", "Volume (ft$^3$)") );
 
 
-Sys.sleep(2) # in case Knit-PDF doesn't like that I just created the file...
+Sys.sleep(2); # in case Knit-PDF doesn't like that I just created the file...
+
+
 ```
 
 \newpage
 
-\input{tables/table-correlation-table}
+\input{tables/tree-correlation-table} 
+
+\newpage
