@@ -109,7 +109,7 @@
 \href{mailto:kevin.black@wsu.edu}{\nolinkurl{kevin.black@wsu.edu}}\vspace{0.05in} \newline\normalsize\emph{Washington State University Vancouver}  }
 
 
-\date{November 01, 2020}
+\date{November 04, 2020}
 \setcounter{secnumdepth}{3}
 
 \usepackage{titlesec}
@@ -285,8 +285,8 @@
             bookmarks=true,
             pdfauthor={Kevin A. Black -
 \href{mailto:kevin.black@wsu.edu}{\nolinkurl{kevin.black@wsu.edu}} (Washington State University Vancouver)},
-             pdfkeywords = {multiple comparisons to control; multivariate chi-square distribution;
-nonlinear growth curves; Richard's curve; simulated critical points},  
+             pdfkeywords = {Shapiro-Wilk test, Pearson Product-Moment Correlation, null hypothesis,
+alternative hypothesis, two-sample t-test, data provenance.},  
             pdftitle={The Influence of Biological Sex on Human Body Part Ratios: How these Ratios Compare Between the Sexes},
             colorlinks=true,
             citecolor=blue,
@@ -357,24 +357,39 @@ nonlinear growth curves; Richard's curve; simulated critical points},
 
     \vskip 8.5pt % \small 
 
-\noindent In this article we compare the \emph{empirical characteristic function}
-\citep{Tukey:1977, Becker:1988} to a
-\emph{moment-generating-functional form} to compute the proportion of
-hypotheses \(m\) that are rejected under the null hypothesis.
-\vspace{0.25in}
+\noindent Throughout history, there have been evident traits of uniqueness among
+the multicellular organisms that roam the Earth. A common theme among
+these creatures relates to the differences in biological sexes,
+especially when it comes to size or behavior. In the endeavor to
+establish some distinct patterns between the biological sexes of humans,
+male and female, students of the STAT 419 course (Introduction to
+Multivariate Statistics) at Washington State University conducted a
+large-scale survey amongst each other and their peers. The students
+recorded the data in a consistent format, which was then compiled by the
+instructor of the class Monte Shaffer. After the compilation of data,
+students were free to formulate their own questions and look for
+recognizable patterns amongst the values. These students also practiced
+data provenance whilst conducting their research to make sure the body
+measurement data wasn't misused in the process.
 
-\noindent Here is a second paragraph of the abstract (if necessary), and
-with the pipe notation it doesn't break. Notice it still needs to be
-indented. \vspace{0.25in}
+\vspace{0.25cm}
 
-\noindent Generally, we write this abstract last. Often it is called the
-executive summary. It should succinctly summarize the entire document.
-You can include references such as this one to the Appendices section
-\ref{sec:appendix} if necessary.
+For this research paper in particular, I address the topic of how
+biological sex influences the ratios of particular body parts.
+Specifically, this paper looks at the influence that being male or
+female has on (1) the ratio of height and arm span and (2) the ratio of
+height and head height. The steps taken in this research involved
+performing a Pearson correlation test on the ratio between height and
+arm span, while a two-sample t-test was performed on the ratio between
+height and head height. The results of these tests found that while
+there was a noticeable variation in the measurements of male and female
+body parts, the previously mentioned ratios were very similar, which
+fall in line with existing body ratio/proportion knowledge about
+biological males and females.
 
 
-\vskip 8.5pt \noindent \textbf{\underline{Keywords}:} multiple comparisons to control; multivariate chi-square distribution;
-nonlinear growth curves; Richard's curve; simulated critical points \par
+\vskip 8.5pt \noindent \textbf{\underline{Keywords}:} Shapiro-Wilk test, Pearson Product-Moment Correlation, null hypothesis,
+alternative hypothesis, two-sample t-test, data provenance. \par
 
     
 
@@ -384,7 +399,7 @@ nonlinear growth curves; Richard's curve; simulated critical points \par
     
     \hbox{\vrule height .2pt width 39.14pc}
     \vskip 5pt 
-    \hfill \textbf{\textcolor{WSU.gray}{ November 01, 2020 } }
+    \hfill \textbf{\textcolor{WSU.gray}{ November 04, 2020 } }
     \vskip 5pt 
     
 \end{abstract}
@@ -417,47 +432,14 @@ observations using a range of methodologies based on what I had in mind
 for how this data will be used, I determined that I would focus on what
 kind of influence biological sex has on certain human body part ratios.
 To supplement my inquiry of this data, I centered my research questions
-around particular measurements of the human body, such as height, arm
-span, foot length, distance from elbow to armpit, head height, just to
-name a few. Research questions pertaining to this study and supportive R
-code can be found below.
-
-\section{How does being male or female influence the ratios between certain body parts?}
-\label{sec:rq}
-
-Making particular deductions throughout history regarding body
-measurements among males and females is more than likely due to the
-distinct patterns one can find when comparing the biological sexes.
-Those born as males or females have about as many differing features to
-one another than their similar features, both internally and externally.
-Internally speaking, men typically have deeper voices, a faster
-metabolism, and can easily build muscle mass, whereas women possess a
-much more complicated reproductive system, have the ability to
-breastfeed, and live longer on average \citep{Wolchover:2011}. What
-about externally? How does being male or female influence the ratios
-between certain body parts? The latter primary question will be
-elaborated through the following sub-questions, focusing on particular
-ratios that are likely to yield some insight on the different external
-measurements between males and females.
-
-\subsection{How does 'height' compare to 'arm span' between males and females?}
-\label{sec:rq2}
-
-Test
-
-\begin{figure}[!ht]
-    \begin{center}
-        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{figures/sq1.png} }
-        \caption{Plots and correlation values for males and females regarding height and arm span.}
-    \end{center}
-    \label{fig:sq1}
-\end{figure}
-
-\subsection{How does 'foot length' compare to the length of 'elbow to armpit' between males and females?}
-\label{sec:rq3}
-
-\subsection{How many average 'head height' lengths are males and females relative to their respective, average 'height'?}
-\label{sec:rq4}
+around particular parts of the human body, which would be \(height\),
+\(arm.span\), and \(head.height\) of the data set. These variables
+correspond to the standing height of the individual with no shoes on,
+the length from one middle finger to the other with fully extended arms,
+and the height from the top of the head to below the chin, respectively.
+Research questions pertaining to this study begins in section
+\ref{sec:rq} and supportive R code can be found in section
+\ref{sec:r-setup}.
 
 \section{Data Description}
 \label{sec:data}
@@ -505,8 +487,162 @@ to exercise data provenance practices. This process will be very similar
 between all data focused projects in a data analyst's career, so this is
 a good starting point for garnering crucial experience.
 
+\section{How does being male or female influence the ratios between certain body parts?}
+\label{sec:rq}
+
+Making particular deductions throughout history regarding body
+measurements among males and females is more than likely due to the
+distinct patterns one can find when comparing the biological sexes.
+Those born as males or females have about as many differing features to
+one another than their similar features, both internally and externally.
+Internally speaking, men typically have deeper voices, a faster
+metabolism, and can easily build muscle mass, whereas women possess a
+much more complicated reproductive system, have the ability to
+breastfeed, and live longer on average \citep{Wolchover:2011}. What
+about externally? How does being male or female influence the ratios
+between certain body parts? The latter primary question will be
+elaborated through the following sub-questions, focusing on particular
+ratios that are likely to yield some insight on the different external
+measurements between males and females.
+
+\subsection{How does 'height' compare to 'arm span' between males and females?}
+\label{sec:rq2}
+
+The body part ratio between \(height\) and \(arm.span\) is a well-known
+one where \enquote{for most people, their arm span is about equal to
+their height. Mathematicians say the arm span to height ratio is one to
+one} \citep{Brabandere:2017}. To set up this sub-question, let's first
+declare some null and alternative hypotheses for males and females. For
+males, \(H_0:\rho_m=0\) and \(H_1:\rho_m\neq0\). For females,
+\(H_0:\rho_f=0\) and \(H_1:\rho_f\neq0\). We must also check both
+vectors for normality prior to correlation testing by performing a
+Shapiro-Wilk test with the \texttt{shapiro.test()} function. Running
+this function gives results for males \(height\) (\(W=0.73255\),
+\(p=2.303\times10^{-11}\)) and \(arm.span\) (\(W=0.80943\),
+\(p=2.664\times10^{-9}\)), as well as for females \(height\)
+(\(W=0.78534\), \(p=6.762\times10^{-11}\)) and \(arm.span\)
+(\(W=0.82018\), \(p=8.305\times10^{-10}\)). All of these test statistics
+show that we can move forward with the \texttt{cor.test()} function as
+each of these tested populations may come from normal distributions. The
+correlation test will be conducted using the method of Pearson
+Product-Moment Correlation.
+
+\vspace{0.25cm}
+
+Given the results of \texttt{cor.test()}, when it comes to males we
+reject our null hypothesis \(H_0:\rho_m=0\) and accept our alternative
+hypothesis \(H_1:\rho_m\neq0\) as there is some clear indication of
+strong, positive correlation among the male body parts
+(\(t_{86}=33.105\), \(p<2.2\times10^{-16}\)). The same conclusion can be
+made with females, where we reject our null hypothesis \(H_0:\rho_f=0\)
+and accept our alternative hypothesis \(H_1:\rho_f\neq0\)
+(\(t_{100}=40.488\), \(p<2.2\times10^{-16}\)). Additionally, based
+solely on figure \ref{fig:sq1} below that was generated from the R code
+in section \ref{sec:first-subq}, we can see that there are strong
+positive correlations for both males and females with regard to their
+respective \(height\) and \(arm.span\) values.
+
+\begin{figure}[!ht]
+    \begin{center}
+        \scalebox{1.00}{    \includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{figures/sq1.png} }
+        \caption{Plots/correlation values for males and females regarding height and arm span.}
+        \label{fig:sq1}
+    \end{center}
+\end{figure}
+
+\subsection{How many average 'head height' lengths are males and females relative to their respective, average 'height'?}
+\label{sec:rq4}
+
+To form the foundation for how we'll go about answering this third
+sub-question, let's consider the population means for \(head.height\)
+and \(height\) for males and females. To test the two population means
+for equality between males and females, we will utilize a two-sample
+t-test. The null hypotheses and alternative hypotheses can be set up as
+follows:
+
+\begin{itemize}
+\item
+  Regarding \(head.height\), to determine if the population means for
+  males and females are equal, let the null hypothesis be
+  \(H_0: \mu_{m.head}=\mu_{f.head}\) and the alternative hypothesis be
+  \(H_1: \mu_{m.head} \neq \mu_{f.head}\).
+\item
+  Regarding \(height\), to determine if the population means for males
+  and females are equal, let the null hypothesis be
+  \(H_0: \mu_{m.height}=\mu_{f.height}\) and the alternative hypothesis
+  be \(H_1: \mu_{m.height} \neq \mu_{f.height}\).
+\end{itemize}
+
+Based on the two-sample t-test results generated by the code in section
+\ref{sec:second-subq}, regarding the comparison of mean \(head.height\)
+between males and females, we can reject our null hypothesis
+\(H_0: \mu_{m.head}=\mu_{f.head}\) and accept our null hypothesis
+\(H_1: \mu_{m.head} \neq \mu_{f.head}\) as there is evidence of at least
+one statistical difference in the mean head heights between the sexes
+(\(t_{182.64}=3.8231\), \(p=1.807\times10^{-4}\)). And as for
+\(height\), we can make a similar conclusion where we reject our null
+hypothesis \(H_0: \mu_{m.height}=\mu_{f.height}\) and accept our null
+hypothesis \(H_1: \mu_{m.height} \neq \mu_{f.height}\) as there is
+evidence of at least one statistical difference in the mean heights
+between the sexes (\(t_{184.65}=3.9891\), \(p=9.552\times10^{-5}\)).
+
+\vspace{0.25cm}
+
+Now that it's established that there are indeed statistical differences
+between males and females when it comes to their respective mean
+\(head.height\) and \(height\) values, we can calculate the explicit
+values to determine how many average \(head.height\) lengths males and
+females are relative to their respective, average \(height\). From the
+results generated by the code in section \ref{sec:second-subq}, we can
+see that the average head height for males is 18.19722 inches and for
+females is 14.31103 inches, whereas the average height for males is
+138.7041 inches and for females is 107.5450 inches. When measured in
+terms of head heights, this leads to values of 7.622273 heads for males
+and 7.514837 heads for females.
+
+\newpage
+
 \section{Key Findings}
 \label{sec:findings}
+
+For the first sub-question, the correlation between \(height\) and
+\(arm.span\) measured in at 0.96293 for males and ever-so-slightly
+higher at 0.97083 for females. These values mean that the heights and
+arm spans for both sexes change at almost the same rate as one another,
+indicating that there is little to no difference between males and
+females for this common body ratio. The only distinction between the
+sexes in this sample is that they operate on different value ranges,
+where height and arm span are larger for males than for females. As for
+the second sub-question, the surprisingly about-equal results of
+7.622273 heads for males and 7.514837 heads for females lines up with
+common proportion knowledge about human height in terms of head height,
+where \enquote{the average adult human is technically seven-and-one-half
+heads tall\ldots{} the average adult female is smaller than the average
+adult male, however you'll notice that they are both proportionately
+similar} \citep{Larson:2014}.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+It's important to reiterate that there's no doubt that males and females
+can have quite stark differences when it comes to the measurements of
+external features, and the research conducted above shows that while
+there can be some differences, there are also some notable similarities.
+For the correlation values regarding these particular samples, it would
+appear that males and females are almost equally as likely to have a
+height matching their arm span. This shows that males and females can
+have very similar body part ratios despite having varied measurements.
+The research conducted for this sub-question is simply a supplement to
+information that has already been known throughout history and simply
+reaffirms the existing beliefs for this specific ratio of body parts.
+Lastly, for the heights of males and females measured in terms of their
+respective head heights, they once again both have very similar ratios
+despite them having very different average, respective values of
+\(height\) and \(head.height\). The evidence provided shows that even
+though males and females can have varying body measurements between each
+other as a group, the influence of biological sex on human body part
+ratios is seemingly non-existent in this case as the ratios were similar
+in both studies.
 
 \newpage
 
@@ -527,9 +663,9 @@ Auxiliary files such as the R project files can be found on the
 through GitHub, while the specific functions used in this report can be
 found in the \texttt{functions-project-measure.R}
 \href{https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/master/functions/functions-project-measure.R}{file}
-or in section \ref{sec:appendix-setup}. The data set itself was not
-saved to any location online due to privacy concerns, but it was
-organized and saved onto a local hard drive for immediate use.
+or in section \ref{sec:functions}. The data set itself was not saved to
+any location online due to privacy concerns, but it was organized and
+saved onto a local hard drive for immediate use.
 
 \vspace{0.25cm}
 
@@ -561,8 +697,8 @@ random observations were drawn without replacement.
 
 \vspace{0.25cm}
 
-The documented R code can be found in section \ref{sec:appendix-setup}.
-Key findings and visualizations of summary statistics were discussed
+The documented R code can be found in section \ref{sec:r-setup}. Key
+findings and visualizations of summary statistics were discussed
 previously throughout sections \ref{sec:rq} through \ref{sec:findings}.
 Based on the points made in this section, its clear that data provenance
 was kept in mind for making sure there was a traceable history in the
@@ -628,14 +764,14 @@ measurement columns.
 \newpage
 
 \subsection{R Code Used for Research}
-\label{sec:appendix-setup}
+\label{sec:r-setup}
 
-Below are the necessary functions required to produce the figures and
-findings referenced in this report.
+\subsubsection{Sourced Functions}
+\label{sec:functions}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{prepareMeasureData =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(measure)\{}
+\NormalTok{prepareMeasureData =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(measure,scale)\{}
   \CommentTok{# Cleaning: omit NA rows based measured values, not on $side}
 \NormalTok{  measure =}\StringTok{ }\NormalTok{measure[}\KeywordTok{complete.cases}\NormalTok{(measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{]),]}
   
@@ -656,13 +792,17 @@ findings referenced in this report.
 \NormalTok{    \}}
 \NormalTok{  \}}
   
-  \CommentTok{# Scale data}
-\NormalTok{  measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{] <-}\StringTok{ }\KeywordTok{scale}\NormalTok{(measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{])}
-  
-  \KeywordTok{return}\NormalTok{(measure)}
+  \CommentTok{# Scale data if scale = TRUE}
+  \ControlFlowTok{if}\NormalTok{(scale)\{}
+\NormalTok{    measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{] <-}\StringTok{ }\KeywordTok{scale}\NormalTok{(measure[,}\DecValTok{4}\OperatorTok{:}\DecValTok{26}\NormalTok{])}
+    \KeywordTok{return}\NormalTok{(measure)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{\{ }\CommentTok{# If false, return without scaling}
+    \KeywordTok{return}\NormalTok{(measure)}
+\NormalTok{  \}}
 \NormalTok{\}}
 
-\NormalTok{read.file =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path)\{}
+
+\NormalTok{read.file =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path,scale)\{}
   \KeywordTok{tryCatch}\NormalTok{(}
     \DataTypeTok{expr =}\NormalTok{ \{}
       \CommentTok{# Open cleaned file if already available}
@@ -675,7 +815,7 @@ findings referenced in this report.
 \NormalTok{      measure =}\StringTok{ }\NormalTok{utils}\OperatorTok{::}\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.to.secret,}\StringTok{"measure-students.txt"}\NormalTok{),}
                                 \DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{quote =} \StringTok{""}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"|"}\NormalTok{)}
       \CommentTok{# Clean data}
-\NormalTok{      measure =}\StringTok{ }\KeywordTok{prepareMeasureData}\NormalTok{(measure)}
+\NormalTok{      measure =}\StringTok{ }\KeywordTok{prepareMeasureData}\NormalTok{(measure,scale)}
       
       \CommentTok{# Save cleaned data for later}
       \KeywordTok{write.table}\NormalTok{(measure,}\KeywordTok{paste0}\NormalTok{(path.to.secret,}\StringTok{"measure-clean.txt"}\NormalTok{),}\DataTypeTok{sep=}\StringTok{"|"}\NormalTok{,}\DataTypeTok{quote=}\OtherTok{FALSE}\NormalTok{)}
@@ -686,8 +826,8 @@ findings referenced in this report.
 \end{Highlighting}
 \end{Shaded}
 
-Below are the libraries and R code used to source functions, import
-measurement data, and perform analysis on said data.
+\subsubsection{Libraries, Sourcing Functions, Isolating Sexes}
+\label{sec:sourcing}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -699,42 +839,99 @@ measurement data, and perform analysis on said data.
 \NormalTok{path.hub =}\StringTok{ "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"}
 \KeywordTok{source_url}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(path.hub,}\StringTok{"master/functions/functions-project-measure.R"}\NormalTok{))}
 \NormalTok{path.to.secret =}\StringTok{ "D:/School/Fall 2020/STAT 419/datasets/"}
-\NormalTok{measure.df =}\StringTok{ }\KeywordTok{read.file}\NormalTok{(path.to.secret) }\CommentTok{# Import data}
+\NormalTok{measure.df =}\StringTok{ }\KeywordTok{read.file}\NormalTok{(path.to.secret,}\OtherTok{FALSE}\NormalTok{) }\CommentTok{# Import data without scaling}
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{) }\CommentTok{# Sample 200 observations from data frame}
 \NormalTok{measure.sample =}\StringTok{ }\NormalTok{measure.df[}\KeywordTok{sample}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(measure.df),}\DecValTok{200}\NormalTok{),]}
 
 \CommentTok{# Isolate male and female data}
 \NormalTok{measure.df.m =}\StringTok{ }\NormalTok{measure.sample[measure.sample}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "male"}\NormalTok{,]}
 \NormalTok{measure.df.f =}\StringTok{ }\NormalTok{measure.sample[measure.sample}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "female"}\NormalTok{,]}
-\NormalTok{cor.m =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
-\NormalTok{cor.f =}\StringTok{ }\KeywordTok{cor}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
-
-\CommentTok{# Sub-question 1}
-\CommentTok{## Trend lines for plots}
-\NormalTok{lm.m =}\StringTok{ }\KeywordTok{lm}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA }\OperatorTok{~}\StringTok{ }\NormalTok{measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
-\NormalTok{lm.f =}\StringTok{ }\KeywordTok{lm}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA }\OperatorTok{~}\StringTok{ }\NormalTok{measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
-
-\CommentTok{## Correlation Graphs}
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA,}
-     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.m,}\DecValTok{5}\NormalTok{)), }\DataTypeTok{pch =} \DecValTok{4}\NormalTok{,}
-     \DataTypeTok{xlab =} \StringTok{"Male Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Male Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(lm.m)}
-
-\KeywordTok{plot}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA,}
-     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.f,}\DecValTok{5}\NormalTok{)), }\DataTypeTok{pch =} \DecValTok{0}\NormalTok{,}
-     \DataTypeTok{xlab =} \StringTok{"Female Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Female Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(lm.f)}
 \end{Highlighting}
 \end{Shaded}
+
+\subsubsection{First Research Subquestion}
+\label{sec:first-subq}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Sub-question 2}
+\CommentTok{# Checking for normality}
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA)}
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA)}
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
 
-\CommentTok{# Sub-question 3}
+\CommentTok{# Correlation values between height and arm span}
+\NormalTok{cor.m.has =}\StringTok{ }\KeywordTok{cor.test}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA)}
+\NormalTok{cor.f.has =}\StringTok{ }\KeywordTok{cor.test}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA)}
+
+\CommentTok{# Graphs with correlation values and trend lines, for males and females}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA,}
+     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.m.has}\OperatorTok{$}\NormalTok{estimate,}\DecValTok{5}\NormalTok{)), }\DataTypeTok{pch =} \DecValTok{4}\NormalTok{,}
+     \DataTypeTok{xlab =} \StringTok{"Male Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Male Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\KeywordTok{lm}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA }\OperatorTok{~}\StringTok{ }\NormalTok{measure.df.m}\OperatorTok{$}\NormalTok{arm.span.NA))}
+
+\KeywordTok{plot}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA,}
+     \DataTypeTok{main =} \KeywordTok{paste}\NormalTok{(}\StringTok{"Correlation ="}\NormalTok{, }\KeywordTok{round}\NormalTok{(cor.f.has}\OperatorTok{$}\NormalTok{estimate,}\DecValTok{5}\NormalTok{)), }\DataTypeTok{pch =} \DecValTok{0}\NormalTok{,}
+     \DataTypeTok{xlab =} \StringTok{"Female Height (in)"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Female Arm Span (in)"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\KeywordTok{lm}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA }\OperatorTok{~}\StringTok{ }\NormalTok{measure.df.f}\OperatorTok{$}\NormalTok{arm.span.NA))}
 \end{Highlighting}
 \end{Shaded}
+
+\subsubsection{Second Research Subquestion}
+\label{sec:second-subq}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Checking for normality}
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{head.height.NA) }
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA)}
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{head.height.NA)}
+\KeywordTok{shapiro.test}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA)}
+
+\CommentTok{# T.test to compare means of populations}
+\KeywordTok{t.test}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{head.height.NA, measure.df.f}\OperatorTok{$}\NormalTok{head.height.NA)}
+\KeywordTok{t.test}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA, measure.df.f}\OperatorTok{$}\NormalTok{height.NA)}
+
+\CommentTok{## How many 'heads' on average is a male relative to their 'height'?}
+\KeywordTok{mean}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{height.NA)}\OperatorTok{/}\KeywordTok{mean}\NormalTok{(measure.df.m}\OperatorTok{$}\NormalTok{head.height.NA)}
+\CommentTok{## How many 'heads' on average is a female relative to their 'height'?}
+\KeywordTok{mean}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{height.NA)}\OperatorTok{/}\KeywordTok{mean}\NormalTok{(measure.df.f}\OperatorTok{$}\NormalTok{head.height.NA)}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\begin{table}[!htbp]
+\footnotesize
+\centering
+\caption{\textbf{Descriptive Statistics and Correlation Analysis}}
+\label{table:correlation}
+\begin{tabularx}{0.9\textwidth}{{r@{ \ \ }p{5cm}r@{}lp{5mm}r@{}lp{10mm}r@{}lr@{}lr@{}l{X}}}
+ & \\
+\hline
+ & \\
+\multicolumn{2}{c}{\textbf{ }} & \multicolumn{2}{c}{\textbf{M}} & & \multicolumn{2}{c}{\textbf{SD}} &  & \multicolumn{2}{c}{\textbf{1}}  & \multicolumn{2}{c}{\textbf{2}}  & \multicolumn{2}{c}{\textbf{3}}  \\ 
+ & \\
+\hline
+ & \\
+\textbf{1} & \textbf{Test (in)} & 13&.2 &  & 54&.85 &  & 1& & \multicolumn{2}{c}{ \  \  \  \  \  \  \  \  \  \ } & \multicolumn{2}{c}{ \  \  \  \  \  \  \  \  \  \ } \\ 
+ & \\
+\textbf{2} & \textbf{Hello (ft)} & 76&.0 &  & 7&.19 &  & &.96{$^{***}$} & 1& & \multicolumn{2}{c}{ \  \  \  \  \  \  \  \  \  \ } \\ 
+ & \\
+\textbf{3} & \textbf{Cheese (ft$^3$)} & 30&.2 &  & 57&.54 &  & &.96{$^{***}$} & &.91{$^{***}$} & 1& \\ 
+ & \\
+\hline
+ & \\
+\multicolumn{7}{c}{ } & \multicolumn{7}{c}{  {\tiny {$^{\dagger} p < .10$} }  {     } {\tiny        {$^{*} p < .05$} }  {     } {\tiny       {$^{**} p < .01$} }  {     } {\tiny      {$^{***} p < .001$} } {     }     }\\ 
+ & \\
+\end{tabularx}
+\begin{tabularx}{0.9\textwidth}{ { p{0.9\textwidth} } }
+  \footnotesize { \begin{hangparas}{0.5in}{1} \textbf{Notes:} Pearson pairwise correlations are reported.    \end{hangparas} }   \\  
+ \\ 
+\hline
+\end{tabularx}
+\end{table}
 
 
 

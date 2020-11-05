@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.29)  4 NOV 2020 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.29)  2 NOV 2020 13:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**project-measure-writeup.tex
-(./project-measure-writeup.tex
+**test-writeup.tex
+(./test-writeup.tex
 LaTeX2e <2020-10-01> patch level 2
 L3 programming layer <2020-10-27> xparse <2020-03-03> (c:/Users/Kevin/AppData/R
 oaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -642,6 +642,14 @@ s.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count312
+Package hyperref Info: Option `draft' set `true' on input line 4338.
+Package hyperref Info: Option `unicode' set `true' on input line 4338.
+
+(c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
 Package hyperref Info: Hyper index ON on input line 4472.
@@ -713,188 +721,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip98
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 295.
+Package hyperref Info: Option `breaklinks' set `true' on input line 292.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 295.
+(hyperref)                setting the option has no effect on input line 292.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\%' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\#' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\&' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textunderscore' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\_' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\~' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textasciitilde' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 295.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 295.
-
-Package hyperref Info: Option `colorlinks' set `true' on input line 295.
+Package hyperref Info: Option `colorlinks' set `true' on input line 292.
 
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/placeins/placeins.
 sty
@@ -908,25 +740,27 @@ d-pdftex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count320
 \l__pdf_internal_box=\box103
-) (./project-measure-writeup.aux)
-\openout1 = `project-measure-writeup.aux'.
+) (./test-writeup.aux)
+\openout1 = `test-writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 323.
-LaTeX Font Info:    ... okay on input line 323.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 320.
+LaTeX Font Info:    ... okay on input line 320.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -982,11 +816,14 @@ e
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 323.
+(lastpage)             ! on input line 320.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 323.
+
+Package hyperref Warning: Draft mode on.
+
+Package hyperref Info: Link coloring ON on input line 320.
 
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
 ty
@@ -1002,165 +839,126 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count321
 )
-LaTeX Info: Redefining \ref on input line 323.
-LaTeX Info: Redefining \pageref on input line 323.
-LaTeX Info: Redefining \nameref on input line 323.
-(./project-measure-writeup.out) (./project-measure-writeup.out)
-\@outlinefile=\write5
-\openout5 = `project-measure-writeup.out'.
-
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 34
-1.
-LaTeX Font Info:    No file T1phv.fd. on input line 341.
+LaTeX Info: Redefining \ref on input line 320.
+LaTeX Info: Redefining \pageref on input line 320.
+LaTeX Info: Redefining \nameref on input line 320.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 33
+7.
+LaTeX Font Info:    No file T1phv.fd. on input line 337.
 
 LaTeX Font Warning: Font shape `T1/phv/bx/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 341.
+(Font)              using `T1/cmr/m/n' instead on input line 337.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 341.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-41.
+59.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-41.
+59.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-341.
+359.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-341.
+359.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <11> on input line 341.
+(Font)              <10> on input line 359.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.69997> on input line 341.
+(Font)              <7> on input line 359.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.5> on input line 341.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 391.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 391.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 391.
+(Font)              <5> on input line 359.
 [1
 
 {c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
 
-Package natbib Warning: Citation `Wolchover:2011' on page 2 undefined on input 
-line 501.
+ []
 
 
-Package natbib Warning: Citation `Brabandere:2017' on page 2 undefined on input
- line 514.
-
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-19.
-(c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<figures/sq1.png, id=91, 523.20468pt x 322.95656pt>
-File: figures/sq1.png Graphic file (type png)
-<use figures/sq1.png>
-Package pdftex.def Info: figures/sq1.png  used on input line 547.
-(pdftex.def)             Requested size: 399.29463pt x 246.47453pt.
-
-LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 562.
+LaTeX Warning: Reference `fig:conceptual-model' on page 2 undefined on input li
+ne 501.
 
 [2]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
-65.
-(c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+\openout4 = `test-writeup.ent'.
 
-LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 603.
-
-[3 <./figures/sq1.png>]
-
-Package natbib Warning: Citation `Larson:2014' on page 4 undefined on input lin
-e 622.
+[3] (./tables/example-correlation-table.tex
+Underfull \hbox (badness 10000) in alignment at lines 26--26
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+ []
 
 
-LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 647.
+Underfull \hbox (badness 10000) in alignment at lines 36--36
+[][] 
+ []
 
-[4]
+) [4] [5
 
-LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 708.
+] [6]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
+59.
+(c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [7] (./test-writeup.ent) [8] (./test-writeup.bbl) [9] (./test-writeup.toc)
+\tf@toc=\write5
+\openout5 = `test-writeup.toc'.
 
-[5]
 
-pdfTeX warning: pdflatex.exe (file ./pdfs/handout1.pdf): PDF inclusion: found P
-DF version <1.7>, but at most version <1.5> allowed
-<pdfs/handout1.pdf, id=130, 614.295pt x 794.97pt>
-File: pdfs/handout1.pdf Graphic file (type pdf)
-<use pdfs/handout1.pdf>
-Package pdftex.def Info: pdfs/handout1.pdf  used on input line 717.
-(pdftex.def)             Requested size: 399.29463pt x 516.73651pt.
+AED: lastpage setting LastPage
+[10] (./test-writeup.aux)
 
-LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 723.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-[6 <./pdfs/handout1.pdf>]
 
-pdfTeX warning: pdflatex.exe (file ./pdfs/handout2.pdf): PDF inclusion: found P
-DF version <1.7>, but at most version <1.5> allowed
-<pdfs/handout2.pdf, id=166, 614.295pt x 794.97pt>
-File: pdfs/handout2.pdf Graphic file (type pdf)
-<use pdfs/handout2.pdf>
-Package pdftex.def Info: pdfs/handout2.pdf  used on input line 729.
-(pdftex.def)             Requested size: 399.29463pt x 516.73651pt.
+LaTeX Warning: There were undefined references.
 
-LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 735.
-
-[7 <./pdfs/handout2.pdf>]
-
-pdfTeX warning: pdflatex.exe (file ./pdfs/datasets_explained.pdf): PDF inclusio
-n: found PDF version <1.7>, but at most version <1.5> allowed
-<pdfs/datasets_explained.pdf, id=206, 614.295pt x 794.97pt>
-File: pdfs/datasets_explained.pdf Graphic file (type pdf)
-<use pdfs/datasets_explained.pdf>
-Package pdftex.def Info: pdfs/datasets_explained.pdf  used on input line 759.
-(pdftex.def)             Requested size: 399.29463pt x 317.4142pt.
-
-LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 764.
-
-[8 <./pdfs/datasets_explained.pdf>]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 774.
-
-LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 827.
-
-[9]
-
-LaTeX Warning: Reference `LastPage' on page 10 undefined on input line 901.
-
-[10]
-
-LaTeX Warning: Reference `LastPage' on page 11 undefined on input line 903.
-
-[11]
-! Package array Error:  Illegal pream-token (X): `c' used.
-
-See the array package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.928 \end{tabularx}
-                     
+ ) 
 Here is how much of TeX's memory you used:
- 12027 strings out of 481466
- 191869 string characters out of 5920169
- 532008 words of memory out of 5000000
- 28432 multiletter control sequences out of 15000+600000
- 630323 words of font info for 94 fonts, out of 8000000 for 9000
+ 15037 strings out of 481466
+ 229924 string characters out of 5920169
+ 571417 words of memory out of 5000000
+ 31474 multiletter control sequences out of 15000+600000
+ 620008 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 79i,12n,84p,777b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 79i,14n,84p,1270b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.e
+nc}{c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.
+enc}{c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ma
+thit.enc}{c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
+lm-mathsy.enc} <c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecrm1095.600pk><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist
+/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf
+-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/
+texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/Users/Kevin/AppData/Roaming/Tiny
+TeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/Kevin/AppData/Roamin
+g/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/Kevin/AppData/R
+oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/Kevin/AppDa
+ta/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/Kevin/A
+ppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmib10.pfb><c:/Users/K
+evin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Use
+rs/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/
+Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><
+c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pf
+b><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9
+.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
+mri10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
+/lm/lmri9.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
+blic/lm/lmsy10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/typ
+e1/public/lm/lmsy5.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts
+/type1/public/lm/lmsy6.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/f
+onts/type1/public/lm/lmtti10.pfb>
+Output written on test-writeup.pdf (10 pages, 331482 bytes).
+PDF statistics:
+ 136 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-!  ==> Fatal error occurred, no output PDF file produced!

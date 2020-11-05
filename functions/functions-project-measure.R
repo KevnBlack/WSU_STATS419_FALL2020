@@ -22,9 +22,10 @@ prepareMeasureData = function(measure,scale){
   # Scale data if scale = TRUE
   if(scale){
     measure[,4:26] <- scale(measure[,4:26])
+    return(measure)
+  } else{ # If false, return without scaling
+    return(measure)
   }
-
-  return(measure)
 }
 
 

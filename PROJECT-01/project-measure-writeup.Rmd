@@ -19,13 +19,15 @@ author:
 - name: "Kevin A. Black - kevin.black@wsu.edu"
   affiliation: "Washington State University Vancouver"
 keywords: |
-    multiple comparisons to control; multivariate chi-square distribution; nonlinear growth curves; Richard's curve; simulated critical points
+    Shapiro-Wilk test, Pearson Product-Moment Correlation, null hypothesis, alternative hypothesis, two-sample t-test, data provenance.
 abstract: |
-  In this article we compare the \emph{empirical characteristic function} \citep{Tukey:1977, Becker:1988} to a \emph{moment-generating-functional form} to compute the proportion of hypotheses $m$ that are rejected under the null hypothesis. \vspace{0.25in}
+    Throughout history, there have been evident traits of uniqueness among the multicellular organisms that roam the Earth. A common theme among these creatures relates to the differences in biological sexes, especially when it comes to size or behavior. In the endeavor to establish some distinct patterns between the biological sexes of humans, male and female, students of the STAT 419 course (Introduction to Multivariate Statistics) at Washington State University conducted a large-scale survey amongst each other and their peers. The students recorded the data in a consistent format, which was then compiled by the instructor of the class Monte Shaffer. After the compilation of data, students were free to formulate their own questions and look for recognizable patterns amongst the values. These students also practiced data provenance whilst conducting their research to make sure the body measurement data wasn’t misused in the process.
+    
+    \vspace{0.25cm}
+    
+    For this research paper in particular, I address the topic of how biological sex influences the ratios of particular body parts. Specifically, this paper looks at the influence that being male or female has on (1) the ratio of height and arm span and (2) the ratio of height and head height. The steps taken in this research involved performing a Pearson correlation test on the ratio between height and arm span, while a two-sample t-test was performed on the ratio between height and head height. The results of these tests found that while there was a noticeable variation in the measurements of male and female body parts, the previously mentioned ratios were very similar, which fall in line with existing body ratio/proportion knowledge about biological males and females.
 
-  \noindent Here is a second paragraph of the abstract (if necessary), and with the pipe notation it doesn't break. Notice it still needs to be indented. \vspace{0.25in}
-
-  \noindent Generally, we write this abstract last.  Often it is called the executive summary. It should succinctly summarize the entire document.  You can include references such as this one to the Appendices section \ref{sec:appendix} if necessary.
+    
 sectionnumberdepth: 3
 titleEndnotes: "ENDNOTES"
 titleReferences: "REFERENCES"
@@ -47,31 +49,7 @@ As a customary portion of the STAT 419 course at Washington State University, th
 
 \vspace{0.25cm}
 
-After receiving the data set ($n=428$) and cleaning up particular observations using a range of methodologies based on what I had in mind for how this data will be used, I determined that I would focus on what kind of influence biological sex has on certain human body part ratios. To supplement my inquiry of this data, I centered my research questions around particular measurements of the human body, such as height, arm span, foot length, distance from elbow to armpit, head height, just to name a few. Research questions pertaining to this study and supportive R code can be found below.
-
-\section{How does being male or female influence the ratios between certain body parts?}
-\label{sec:rq}
-Making particular deductions throughout history regarding body measurements among males and females is more than likely due to the distinct patterns one can find when comparing the biological sexes. Those born as males or females have about as many differing features to one another than their similar features, both internally and externally. Internally speaking, men typically have deeper voices, a faster metabolism, and can easily build muscle mass, whereas women possess a much more complicated reproductive system, have the ability to breastfeed, and live longer on average \citep{Wolchover:2011}. What about externally? How does being male or female influence the ratios between certain body parts? The latter primary question will be elaborated through the following sub-questions, focusing on particular ratios that are likely to yield some insight on the different external measurements between males and females.
-
-\subsection{How does 'height' compare to 'arm span' between males and females?}
-\label{sec:rq2}
-Test
-
-\begin{figure}[!ht]
-	\begin{center}
-	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{figures/sq1.png} }
-	    \caption{Plots and correlation values for males and females regarding height and arm span.}
-	\end{center}
-	\label{fig:sq1}
-\end{figure}
-
-\subsection{How does 'foot length' compare to the length of 'elbow to armpit' between males and females?}
-\label{sec:rq3}
-
-
-\subsection{How many average 'head height' lengths are males and females relative to their respective, average 'height'?}
-\label{sec:rq4}
-
+After receiving the data set ($n=428$) and cleaning up particular observations using a range of methodologies based on what I had in mind for how this data will be used, I determined that I would focus on what kind of influence biological sex has on certain human body part ratios. To supplement my inquiry of this data, I centered my research questions around particular parts of the human body, which would be $height$, $arm.span$, and $head.height$ of the data set. These variables correspond to the standing height of the individual with no shoes on, the length from one middle finger to the other with fully extended arms, and the height from the top of the head to below the chin, respectively. Research questions pertaining to this study begins in section \ref{sec:rq} and supportive R code can be found in section \ref{sec:r-setup}.
 
 \section{Data Description}
 \label{sec:data}
@@ -84,10 +62,51 @@ These observations were recorded in early September 2020 and compiled by the ins
 
 \vspace{0.25cm}
 
-On the surface, the purpose for writing this research paper and collecting the necessary data can simply be attributed to project requirements for a university course. However, the deeper reasoning behind why this research paper was composed the first place was to give students a more thorough understanding of the data analytics process. More specifically, how to not just work with the data, but how to understand the data and derive effective questions, how to test for patterns and conclusions in a statistical, analytic environment, and how to exercise data provenance practices. This process will be very similar between all data focused projects in a data analyst's career, so this is a good starting point for garnering crucial experience. 
+On the surface, the purpose for writing this research paper and collecting the necessary data can simply be attributed to project requirements for a university course. However, the deeper reasoning behind why this research paper was composed the first place was to give students a more thorough understanding of the data analytics process. More specifically, how to not just work with the data, but how to understand the data and derive effective questions, how to test for patterns and conclusions in a statistical, analytic environment, and how to exercise data provenance practices. This process will be very similar between all data focused projects in a data analyst's career, so this is a good starting point for garnering crucial experience.
+
+\section{How does being male or female influence the ratios between certain body parts?}
+\label{sec:rq}
+Making particular deductions throughout history regarding body measurements among males and females is more than likely due to the distinct patterns one can find when comparing the biological sexes. Those born as males or females have about as many differing features to one another than their similar features, both internally and externally. Internally speaking, men typically have deeper voices, a faster metabolism, and can easily build muscle mass, whereas women possess a much more complicated reproductive system, have the ability to breastfeed, and live longer on average \citep{Wolchover:2011}. What about externally? How does being male or female influence the ratios between certain body parts? The latter primary question will be elaborated through the following sub-questions, focusing on particular ratios that are likely to yield some insight on the different external measurements between males and females.
+
+\subsection{How does 'height' compare to 'arm span' between males and females?}
+\label{sec:rq2}
+The body part ratio between $height$ and $arm.span$ is a well-known one where "for most people, their arm span is about equal to their height. Mathematicians say the arm span to height ratio is one to one" \citep{Brabandere:2017}. To set up this sub-question, let's first declare some null and alternative hypotheses for males and females. For males, $H_0:\rho_m=0$ and $H_1:\rho_m\neq0$. For females, $H_0:\rho_f=0$ and $H_1:\rho_f\neq0$. We must also check both vectors for normality prior to correlation testing by performing a Shapiro-Wilk test with the `shapiro.test()` function. Running this function gives results for males $height$ ($W=0.73255$, $p=2.303\times10^{-11}$) and $arm.span$ ($W=0.80943$, $p=2.664\times10^{-9}$), as well as for females $height$ ($W=0.78534$, $p=6.762\times10^{-11}$) and $arm.span$ ($W=0.82018$, $p=8.305\times10^{-10}$). All of these test statistics show that we can move forward with the `cor.test()` function as each of these tested populations may come from normal distributions. The correlation test will be conducted using the method of Pearson Product-Moment Correlation.
+
+\vspace{0.25cm}
+Given the results of `cor.test()`, when it comes to males we reject our null hypothesis $H_0:\rho_m=0$ and accept our alternative hypothesis $H_1:\rho_m\neq0$ as there is some clear indication of strong, positive correlation among the male body parts ($t_{86}=33.105$, $p<2.2\times10^{-16}$). The same conclusion can be made with females, where we reject our null hypothesis $H_0:\rho_f=0$ and accept our alternative hypothesis $H_1:\rho_f\neq0$ ($t_{100}=40.488$, $p<2.2\times10^{-16}$). Additionally, based solely on figure \ref{fig:sq1} below that was generated from the R code in section \ref{sec:first-subq}, we can see that there are strong positive correlations for both males and females with regard to their respective $height$ and $arm.span$ values. 
+
+\begin{figure}[!ht]
+	\begin{center}
+	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{figures/sq1.png} }
+	    \caption{Plots/correlation values for males and females regarding height and arm span.}
+	    \label{fig:sq1}
+	\end{center}
+\end{figure}
+
+\subsection{How many average 'head height' lengths are males and females relative to their respective, average 'height'?}
+\label{sec:rq4}
+To form the foundation for how we'll go about answering this third sub-question, let's consider the population means for $head.height$ and $height$ for males and females. To test the two population means for equality between males and females, we will utilize a two-sample t-test. The null hypotheses and alternative hypotheses can be set up as follows:
+
+* Regarding $head.height$, to determine if the population means for males and females are equal, let the null hypothesis be $H_0: \mu_{m.head}=\mu_{f.head}$ and the alternative hypothesis be $H_1: \mu_{m.head} \neq \mu_{f.head}$.
+
+* Regarding $height$, to determine if the population means for males and females are equal, let the null hypothesis be $H_0: \mu_{m.height}=\mu_{f.height}$ and the alternative hypothesis be $H_1: \mu_{m.height} \neq \mu_{f.height}$.
+
+Based on the two-sample t-test results generated by the code in section \ref{sec:second-subq}, regarding the comparison of mean $head.height$ between males and females, we can reject our null hypothesis $H_0: \mu_{m.head}=\mu_{f.head}$ and accept our null hypothesis $H_1: \mu_{m.head} \neq \mu_{f.head}$ as there is evidence of at least one statistical difference in the mean head heights between the sexes ($t_{182.64}=3.8231$, $p=1.807\times10^{-4}$). And as for $height$, we can make a similar conclusion where we reject our null hypothesis $H_0: \mu_{m.height}=\mu_{f.height}$ and accept our null hypothesis $H_1: \mu_{m.height} \neq \mu_{f.height}$ as there is evidence of at least one statistical difference in the mean heights between the sexes ($t_{184.65}=3.9891$, $p=9.552\times10^{-5}$).
+
+\vspace{0.25cm}
+
+Now that it's established that there are indeed statistical differences between males and females when it comes to their respective mean $head.height$ and $height$ values, we can calculate the explicit values to determine how many average $head.height$ lengths males and females are relative to their respective, average $height$. From the results generated by the code in section \ref{sec:second-subq}, we can see that the average head height for males is 18.19722 inches and for females is 14.31103 inches, whereas the average height for males is 138.7041 inches and for females is 107.5450 inches. When measured in terms of head heights, this leads to values of 7.622273 heads for males and 7.514837 heads for females.
+
+\newpage
 
 \section{Key Findings}
 \label{sec:findings}
+For the first sub-question, the correlation between $height$ and $arm.span$ measured in at 0.96293 for males and ever-so-slightly higher at 0.97083 for females. These values mean that the heights and arm spans for both sexes change at almost the same rate as one another, indicating that there is little to no difference between males and females for this common body ratio. The only distinction between the sexes in this sample is that they operate on different value ranges, where height and arm span are larger for males than for females. As for the second sub-question, the surprisingly about-equal results of 7.622273 heads for males and 7.514837 heads for females lines up with common proportion knowledge about human height in terms of head height, where "the average adult human is technically seven-and-one-half heads tall... the average adult female is smaller than the average adult male, however you'll notice that they are both proportionately similar" \citep{Larson:2014}. 
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+It's important to reiterate that there's no doubt that males and females can have quite stark differences when it comes to the measurements of external features, and the research conducted above shows that while there can be some differences, there are also some notable similarities. For the correlation values regarding these particular samples, it would appear that males and females are almost equally as likely to have a height matching their arm span. This shows that males and females can have very similar body part ratios despite having varied measurements. The research conducted for this sub-question is simply a supplement to information that has already been known throughout history and simply reaffirms the existing beliefs for this specific ratio of body parts. Lastly, for the heights of males and females measured in terms of their respective head heights, they once again both have very similar ratios despite them having very different average, respective values of $height$ and $head.height$. The evidence provided shows that even though males and females can have varying body measurements between each other as a group, the influence of biological sex on human body part ratios is seemingly non-existent in this case as the ratios were similar in both studies.
 
 \newpage
 
@@ -100,7 +119,7 @@ On the surface, the purpose for writing this research paper and collecting the n
 \subsubsection{Utilization of Data Provenance}
 \label{sec:appendix-provenance-explained}
 
-While it could be seen as an application mainly used in large-scale data analytics projects, the multitude of steps to practice data provenance was also used to handle the vulnerable data used in this research. Auxiliary files such as the R project files can be found on the \href{https://github.com/KevnBlack/WSU_STATS419_FALL2020/tree/master/PROJECT-01}{project repository} through GitHub, while the specific functions used in this report can be found in the `functions-project-measure.R` \href{https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/master/functions/functions-project-measure.R}{file} or in section \ref{sec:appendix-setup}. The data set itself was not saved to any location online due to privacy concerns, but it was organized and saved onto a local hard drive for immediate use. 
+While it could be seen as an application mainly used in large-scale data analytics projects, the multitude of steps to practice data provenance was also used to handle the vulnerable data used in this research. Auxiliary files such as the R project files can be found on the \href{https://github.com/KevnBlack/WSU_STATS419_FALL2020/tree/master/PROJECT-01}{project repository} through GitHub, while the specific functions used in this report can be found in the `functions-project-measure.R` \href{https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/master/functions/functions-project-measure.R}{file} or in section \ref{sec:functions}. The data set itself was not saved to any location online due to privacy concerns, but it was organized and saved onto a local hard drive for immediate use. 
 
 \vspace{0.25cm}
 
@@ -112,7 +131,7 @@ Prior to `prepareMeasureData()`, the data is imported via the `read.file()` func
 
 \vspace{0.25cm}
 
-The documented R code can be found in section \ref{sec:appendix-setup}. Key findings and visualizations of summary statistics were discussed previously throughout sections \ref{sec:rq} through \ref{sec:findings}. Based on the points made in this section, its clear that data provenance was kept in mind for making sure there was a traceable history in the usage of this data set, whether to resolve potential issues or to cut down on access times.
+The documented R code can be found in section \ref{sec:r-setup}. Key findings and visualizations of summary statistics were discussed previously throughout sections \ref{sec:rq} through \ref{sec:findings}. Based on the points made in this section, its clear that data provenance was kept in mind for making sure there was a traceable history in the usage of this data set, whether to resolve potential issues or to cut down on access times.
 
 \newpage
 
@@ -158,11 +177,12 @@ In addition to how the data set was described in Section \ref{sec:data}, explana
 \newpage
 
 \subsection{R Code Used for Research}
-\label{sec:appendix-setup}
+\label{sec:r-setup}
 
-Below are the necessary functions required to produce the figures and findings referenced in this report.
+\subsubsection{Sourced Functions}
+\label{sec:functions}
 ```{r,message=FALSE}
-prepareMeasureData = function(measure){
+prepareMeasureData = function(measure,scale){
   # Cleaning: omit NA rows based measured values, not on $side
   measure = measure[complete.cases(measure[,4:26]),]
   
@@ -183,13 +203,17 @@ prepareMeasureData = function(measure){
     }
   }
   
-  # Scale data
-  measure[,4:26] <- scale(measure[,4:26])
-  
-  return(measure)
+  # Scale data if scale = TRUE
+  if(scale){
+    measure[,4:26] <- scale(measure[,4:26])
+    return(measure)
+  } else{ # If false, return without scaling
+    return(measure)
+  }
 }
 
-read.file = function(path){
+
+read.file = function(path,scale){
   tryCatch(
     expr = {
       # Open cleaned file if already available
@@ -202,7 +226,7 @@ read.file = function(path){
       measure = utils::read.csv(paste0(path.to.secret,"measure-students.txt"),
                                 header = TRUE, quote = "", sep = "|")
       # Clean data
-      measure = prepareMeasureData(measure)
+      measure = prepareMeasureData(measure,scale)
       
       # Save cleaned data for later
       write.table(measure,paste0(path.to.secret,"measure-clean.txt"),sep="|",quote=FALSE)
@@ -212,7 +236,8 @@ read.file = function(path){
 }
 ```
 
-Below are the libraries and R code used to source functions, import measurement data, and perform analysis on said data.
+\subsubsection{Libraries, Sourcing Functions, Isolating Sexes}
+\label{sec:sourcing}
 ```{r,fig.show="hide",message=FALSE}
 # Import necessary libraries
 library(stats) # For cor()
@@ -222,40 +247,85 @@ library(devtools) # For source_url()
 path.hub = "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"
 source_url(paste0(path.hub,"master/functions/functions-project-measure.R"))
 path.to.secret = "D:/School/Fall 2020/STAT 419/datasets/"
-measure.df = read.file(path.to.secret) # Import data
+measure.df = read.file(path.to.secret,FALSE) # Import data without scaling
 set.seed(1) # Sample 200 observations from data frame
 measure.sample = measure.df[sample(nrow(measure.df),200),]
 
 # Isolate male and female data
 measure.df.m = measure.sample[measure.sample$gender == "male",]
 measure.df.f = measure.sample[measure.sample$gender == "female",]
-cor.m = cor(measure.df.m$height.NA, measure.df.m$arm.span.NA)
-cor.f = cor(measure.df.f$height.NA, measure.df.f$arm.span.NA)
-
-# Sub-question 1
-## Trend lines for plots
-lm.m = lm(measure.df.m$height.NA ~ measure.df.m$arm.span.NA)
-lm.f = lm(measure.df.f$height.NA ~ measure.df.f$arm.span.NA)
-
-## Correlation Graphs
-par(mfrow = c(1,2))
-plot(measure.df.m$height.NA, measure.df.m$arm.span.NA,
-     main = paste("Correlation =", round(cor.m,5)), pch = 4,
-     xlab = "Male Height (in)", ylab = "Male Arm Span (in)", col = "blue")
-abline(lm.m)
-
-plot(measure.df.f$height.NA, measure.df.f$arm.span.NA,
-     main = paste("Correlation =", round(cor.f,5)), pch = 0,
-     xlab = "Female Height (in)", ylab = "Female Arm Span (in)", col = "red")
-abline(lm.f)
-
-# Sub-question 2
-
-# Sub-question 3
 ```
 
+\subsubsection{First Research Subquestion}
+\label{sec:first-subq}
+```{r,fig.show="hide",results="hide",message=FALSE}
+# Checking for normality
+shapiro.test(measure.df.m$height.NA)
+shapiro.test(measure.df.m$arm.span.NA)
+shapiro.test(measure.df.f$height.NA)
+shapiro.test(measure.df.f$arm.span.NA)
+
+# Correlation values between height and arm span
+cor.m.has = cor.test(measure.df.m$height.NA, measure.df.m$arm.span.NA)
+cor.f.has = cor.test(measure.df.f$height.NA, measure.df.f$arm.span.NA)
+
+# Graphs with correlation values and trend lines, for males and females
+par(mfrow = c(1,2))
+plot(measure.df.m$height.NA, measure.df.m$arm.span.NA,
+     main = paste("Correlation =", round(cor.m.has$estimate,5)), pch = 4,
+     xlab = "Male Height (in)", ylab = "Male Arm Span (in)", col = "blue")
+abline(lm(measure.df.m$height.NA ~ measure.df.m$arm.span.NA))
+
+plot(measure.df.f$height.NA, measure.df.f$arm.span.NA,
+     main = paste("Correlation =", round(cor.f.has$estimate,5)), pch = 0,
+     xlab = "Female Height (in)", ylab = "Female Arm Span (in)", col = "red")
+abline(lm(measure.df.f$height.NA ~ measure.df.f$arm.span.NA))
+```
+
+\subsubsection{Second Research Subquestion}
+\label{sec:second-subq}
+```{r,results="hide",message=FALSE}
+# Checking for normality
+shapiro.test(measure.df.m$head.height.NA) 
+shapiro.test(measure.df.m$height.NA)
+shapiro.test(measure.df.f$head.height.NA)
+shapiro.test(measure.df.f$height.NA)
+
+# T.test to compare means of populations
+t.test(measure.df.m$head.height.NA, measure.df.f$head.height.NA)
+t.test(measure.df.m$height.NA, measure.df.f$height.NA)
+
+## How many 'heads' on average is a male relative to their 'height'?
+mean(measure.df.m$height.NA)/mean(measure.df.m$head.height.NA)
+## How many 'heads' on average is a female relative to their 'height'?
+mean(measure.df.f$height.NA)/mean(measure.df.f$head.height.NA)
+
+```
+
+\newpage
+
+```{r,test-correlation,message=FALSE}
+path.tables = "D:/School/Fall 2020/STAT 419/git/WSU_STATS419_FALL2020/PROJECT-01/tables/"
+file.correlation = paste0(path.tables,"table-correlation.tex");
 
 
+myData = as.matrix(trees);  # numeric values only, only what will appear in table
+
+# https://www.overleaf.com/read/srzhrcryjpwn
+# keepaspectratio of include graphics 
+# could scale \input if still too big ...
+# https://tex.stackexchange.com/questions/13460/scalebox-knowing-how-much-it-scales#13487
+buildLatexCorrelationTable(myData, 
+  rotateTable = TRUE,
+  width.table = 0.60, # best for given data ... 0.95 when rotateTable = FALSE
+                      # 0.60 when rotateTable = TRUE
+  myFile = file.correlation,
+  myNames = c("Diameter (in)", "Height (ft)", "Volume (ft$^3$)") );
 
 
+Sys.sleep(2) # in case Knit-PDF doesn't like that I just created the file...
+```
 
+\newpage
+
+\input{tables/table-correlation-table}
