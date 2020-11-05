@@ -246,6 +246,7 @@ library(devtools) # For source_url()
 # Source cleaning function
 path.hub = "https://raw.githubusercontent.com/KevnBlack/WSU_STATS419_FALL2020/"
 source_url(paste0(path.hub,"master/functions/functions-project-measure.R"))
+
 path.to.secret = "D:/School/Fall 2020/STAT 419/datasets/"
 measure.df = read.file(path.to.secret,FALSE) # Import data without scaling
 set.seed(1) # Sample 200 observations from data frame

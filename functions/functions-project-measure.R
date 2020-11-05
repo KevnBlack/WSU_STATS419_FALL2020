@@ -52,35 +52,6 @@ read.file = function(path,scale){
 }
 
 
-
-
-# https://stackoverflow.com/questions/47044068/
-this_file = gsub("--file=", "", commandArgs()[grepl("--file", commandArgs())])
-if (length(this_file) > 0){
-  wd <- paste(head(strsplit(this_file, '[/|\\]')[[1]], -1), collapse = .Platform$file.sep)
-}else{
-  wd <- dirname(rstudioapi::getSourceEditorContext()$path)
-}
-
-print(wd)
-
-
-setwd(wd);
-
-
-library(humanVerseWSU);
-library(Hmisc);
-
-
-#myData = as.matrix(measure.df[,c("height.NA","head.height.NA","arm.span.NA")]);  # numeric values only, only what will appear in table
-
-#myNames = c("Test (in)", "Hello (ft)", "Cheese (ft$^3$)");
-
-# buildLatexCorrelationTable(myData);
-
-buildLatexCorrelationTable(myData, myNames = myNames,rotateTable=FALSE);
-
-
 buildLatexCorrelationTable = function(myData, 
                                       myFile = paste0(getwd(),"/","table-correlation.tex"),
                                       myLabel = "table:correlation",
