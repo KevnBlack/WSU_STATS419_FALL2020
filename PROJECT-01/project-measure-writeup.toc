@@ -1,17 +1,19 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {2}Data Description}{1}{section.2}%
+\contentsline {section}{\numberline {2}Data Description}{2}{section.2}%
 \contentsline {section}{\numberline {3}How does being male or female influence the ratios between certain body parts?}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}How does 'height' compare to 'arm span' between males and females?}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}How many average 'head height' lengths are males and females relative to their respective, average 'height'?}{3}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Key Findings}{4}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{4}{section.5}%
-\contentsline {section}{\numberline {6}APPENDICES}{5}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Data Provenance}{5}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Utilization of Data Provenance}{5}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Data Collection Handout}{6}{subsubsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.2}Data Set Explained}{8}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}R Code Used for Research}{9}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Sourced Functions}{9}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Libraries, Sourcing Functions, Isolating Sexes}{10}{subsubsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.3}First Research Subquestion}{10}{subsubsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {6.3.4}Second Research Subquestion}{11}{subsubsection.6.3.4}%
+\contentsline {section}{\numberline {4}Key Findings}{5}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{5}{section.5}%
+\contentsline {section}{\numberline {6}APPENDICES}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Data Provenance}{6}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Utilization of Data Provenance}{6}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Data Collection Handout}{7}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Data Set Explained}{9}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}R Code Used for Research}{10}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Sourced Functions}{10}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Libraries, Sourcing Functions, Isolating Sexes}{11}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}First Research Subquestion}{11}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.4}Second Research Subquestion}{12}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.5}Correlation Table Creation}{12}{subsubsection.6.3.5}%
+\contentsline {subsubsection}{\numberline {6.3.6}Tables of Descriptive Statistics and Correlations}{13}{subsubsection.6.3.6}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.29)  4 NOV 2020 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.29)  5 NOV 2020 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -721,12 +721,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip98
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 292.
+Package hyperref Info: Option `breaklinks' set `true' on input line 299.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 292.
+(hyperref)                setting the option has no effect on input line 299.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 292.
+Package hyperref Info: Option `colorlinks' set `true' on input line 299.
 
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/placeins/placeins.
 sty
@@ -743,24 +743,24 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 ) (./test-writeup.aux)
 \openout1 = `test-writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 320.
-LaTeX Font Info:    ... okay on input line 320.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -816,14 +816,14 @@ e
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 320.
+(lastpage)             ! on input line 328.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Package hyperref Warning: Draft mode on.
 
-Package hyperref Info: Link coloring ON on input line 320.
+Package hyperref Info: Link coloring ON on input line 328.
 
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
 ty
@@ -839,53 +839,53 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count321
 )
-LaTeX Info: Redefining \ref on input line 320.
-LaTeX Info: Redefining \pageref on input line 320.
-LaTeX Info: Redefining \nameref on input line 320.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 33
-7.
-LaTeX Font Info:    No file T1phv.fd. on input line 337.
+LaTeX Info: Redefining \ref on input line 328.
+LaTeX Info: Redefining \pageref on input line 328.
+LaTeX Info: Redefining \nameref on input line 328.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 34
+6.
+LaTeX Font Info:    No file T1phv.fd. on input line 346.
 
 LaTeX Font Warning: Font shape `T1/phv/bx/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 337.
+(Font)              using `T1/cmr/m/n' instead on input line 346.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-59.
+69.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-59.
+69.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-359.
+369.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-359.
+369.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 359.
+(Font)              <10> on input line 369.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 359.
+(Font)              <7> on input line 369.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 359.
+(Font)              <5> on input line 369.
 [1
 
 {c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 444--446
+Underfull \hbox (badness 10000) in paragraph at lines 455--457
 
  []
 
 
 LaTeX Warning: Reference `fig:conceptual-model' on page 2 undefined on input li
-ne 501.
+ne 512.
 
 [2]
 \openout4 = `test-writeup.ent'.
@@ -904,7 +904,7 @@ Underfull \hbox (badness 10000) in alignment at lines 36--36
 
 ] [6]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-59.
+70.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [7] (./test-writeup.ent) [8] (./test-writeup.bbl) [9] (./test-writeup.toc)

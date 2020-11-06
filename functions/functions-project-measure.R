@@ -41,7 +41,8 @@ read.file = function(path,scale){
       # If no clean file, open original file
       measure = utils::read.csv(paste0(path.to.secret,"measure-students.txt"),
                                 header = TRUE, quote = "", sep = "|")
-      # Clean data
+      
+      measure = removeDuplicatesFromDataFrameAllColumns(measure)
       measure = prepareMeasureData(measure,scale)
       
       # Save cleaned data for later

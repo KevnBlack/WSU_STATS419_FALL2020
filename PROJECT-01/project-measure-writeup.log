@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.29)  4 NOV 2020 20:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.29)  5 NOV 2020 14:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -908,7 +908,11 @@ d-pdftex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count320
 \l__pdf_internal_box=\box103
-) (./project-measure-writeup.aux)
+) (./project-measure-writeup.aux
+
+LaTeX Warning: Label `table:correlation' multiply defined.
+
+)
 \openout1 = `project-measure-writeup.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 331.
@@ -1044,97 +1048,103 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5.5> on input line 350.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 401.
+(Font)              <10> on input line 403.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 401.
+(Font)              <7> on input line 403.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 401.
+(Font)              <5> on input line 403.
 [1
 
 {c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-30.
+35.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<figures/sq1.png, id=95, 523.20468pt x 322.95656pt>
+) [2]
+<figures/sq1.png, id=118, 523.20468pt x 322.95656pt>
 File: figures/sq1.png Graphic file (type png)
 <use figures/sq1.png>
-Package pdftex.def Info: figures/sq1.png  used on input line 558.
+Package pdftex.def Info: figures/sq1.png  used on input line 566.
 (pdftex.def)             Requested size: 399.29463pt x 246.47453pt.
-[2]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
-76.
+84.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [3 <./figures/sq1.png>] [4] [5]
+\openout4 = `project-measure-writeup.ent'.
+
+[6]
 
 pdfTeX warning: pdflatex.exe (file ./pdfs/handout1.pdf): PDF inclusion: found P
 DF version <1.7>, but at most version <1.5> allowed
-<pdfs/handout1.pdf, id=144, 614.295pt x 794.97pt>
+<pdfs/handout1.pdf, id=160, 614.295pt x 794.97pt>
 File: pdfs/handout1.pdf Graphic file (type pdf)
 <use pdfs/handout1.pdf>
-Package pdftex.def Info: pdfs/handout1.pdf  used on input line 728.
+Package pdftex.def Info: pdfs/handout1.pdf  used on input line 744.
 (pdftex.def)             Requested size: 399.29463pt x 516.73651pt.
-[6 <./pdfs/handout1.pdf>]
+[7 <./pdfs/handout1.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./pdfs/handout2.pdf): PDF inclusion: found P
 DF version <1.7>, but at most version <1.5> allowed
-<pdfs/handout2.pdf, id=181, 614.295pt x 794.97pt>
+<pdfs/handout2.pdf, id=198, 614.295pt x 794.97pt>
 File: pdfs/handout2.pdf Graphic file (type pdf)
 <use pdfs/handout2.pdf>
-Package pdftex.def Info: pdfs/handout2.pdf  used on input line 740.
+Package pdftex.def Info: pdfs/handout2.pdf  used on input line 756.
 (pdftex.def)             Requested size: 399.29463pt x 516.73651pt.
-[7 <./pdfs/handout2.pdf>]
+[8 <./pdfs/handout2.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./pdfs/datasets_explained.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<pdfs/datasets_explained.pdf, id=222, 614.295pt x 794.97pt>
+<pdfs/datasets_explained.pdf, id=238, 614.295pt x 794.97pt>
 File: pdfs/datasets_explained.pdf Graphic file (type pdf)
 <use pdfs/datasets_explained.pdf>
-Package pdftex.def Info: pdfs/datasets_explained.pdf  used on input line 770.
+Package pdftex.def Info: pdfs/datasets_explained.pdf  used on input line 786.
 (pdftex.def)             Requested size: 399.29463pt x 317.4142pt.
-[8 <./pdfs/datasets_explained.pdf>]
+[9 <./pdfs/datasets_explained.pdf>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 785.
-[9] [10]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 801.
+[10] [11]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-910.
+930.
 (c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [11] [12] (./tables/tree-correlation-table.tex
+) [12] (./tables/measure-table-m.tex
 Underfull \hbox (badness 10000) in alignment at lines 26--26
 [][][][][][][][][][][][][][][][]
  []
 
-) [13] (./project-measure-writeup.ent) [14
+) (./tables/measure-table-f.tex
+Underfull \hbox (badness 10000) in alignment at lines 26--26
+[][][][][][][][][][][][][][][][]
+ []
 
-] (./project-measure-writeup.bbl) [15] (./project-measure-writeup.toc)
+) [13] (./project-measure-writeup.ent) [14] (./project-measure-writeup.bbl) [15
+] (./project-measure-writeup.toc)
 \tf@toc=\write6
 \openout6 = `project-measure-writeup.toc'.
 
 
 AED: lastpage setting LastPage
-[16]
-\openout4 = `project-measure-writeup.ent'.
-
-(./project-measure-writeup.aux)
+[16] (./project-measure-writeup.aux)
 Package rerunfilecheck Info: File `project-measure-writeup.out' has not changed
 .
-(rerunfilecheck)             Checksum: C874DA10691263280BDD41C543FA53E8;1355.
+(rerunfilecheck)             Checksum: 023B8DF9542F3FC92CE1D81257E82599;1550.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 12110 strings out of 481466
- 193222 string characters out of 5920169
- 531141 words of memory out of 5000000
- 28486 multiletter control sequences out of 15000+600000
- 636606 words of font info for 97 fonts, out of 8000000 for 9000
+ 12121 strings out of 481466
+ 193425 string characters out of 5920169
+ 541345 words of memory out of 5000000
+ 28490 multiletter control sequences out of 15000+600000
+ 639598 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 79i,15n,84p,777b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 79i,13n,84p,777b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.e
 nc}{c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.
 enc}{c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ma
@@ -1151,23 +1161,22 @@ ing/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/Kevin/AppData
 Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/Kevin
 /AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/K
 evin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/User
-s/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/U
-sers/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c
-:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb
-><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri1
-0.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/
-lmri9.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
-/lm/lmsy10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/p
-ublic/lm/lmsy5.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/typ
-e1/public/lm/lmsy6.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts
-/type1/public/lm/lmsy7.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/f
-onts/type1/public/lm/lmtk10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-d
-ist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/te
-xmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on project-measure-writeup.pdf (16 pages, 944030 bytes).
+s/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/U
+sers/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c
+:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.p
+fb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr
+i9.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
+/lmsy10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publ
+ic/lm/lmsy5.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/
+public/lm/lmsy6.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/fonts/ty
+pe1/public/lm/lmsy7.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist/font
+s/type1/public/lm/lmtk10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf-dist
+/fonts/type1/public/lm/lmtt10.pfb><c:/Users/Kevin/AppData/Roaming/TinyTeX/texmf
+-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on project-measure-writeup.pdf (16 pages, 928914 bytes).
 PDF statistics:
- 427 PDF objects out of 1000 (max. 8388607)
- 341 compressed objects within 4 object streams
- 42 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 443 PDF objects out of 1000 (max. 8388607)
+ 358 compressed objects within 4 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
